@@ -1,0 +1,212 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --gold: #C2A581;
+    --gold-light: #E6D7C3;
+    --bg-dark: #0B0C0E;
+    --text-main: #F4F1EA;
+    --text-muted: #C5C0B5;
+  }
+
+  body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    font-size: 15px;
+    line-height: 1.7;
+  }
+}
+
+/* --- 1. نظام التايبوجرافي الهرمي (Hierarchy System) --- */
+
+/* خط Cinzel للعناوين الكبرى فقط */
+.design-h1, .design-h2, .design-h3, .font-serif-classic, .font-serif-display {
+  font-family: 'Cinzel', serif !important;
+  letter-spacing: 0.05em !important;
+}
+
+/* خط Plus Jakarta Sans لكل النصوص الأخرى */
+.design-eyebrow, .design-body, .design-caption, p, span, a, button, li {
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+}
+
+.design-h1 {
+  font-size: clamp(2.5rem, 5vw, 4.5rem) !important;
+  font-weight: 700 !important;
+  line-height: 1.1 !important;
+  color: #F9F3EA;
+}
+
+.design-h2 {
+  font-size: 1.5rem !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.06em !important;
+  text-transform: uppercase;
+  color: #C2A581 !important; /* <--- اجعليها هنا ذهبي صريح ومؤكد */
+}
+
+.design-h3 {
+  font-size: 1.125rem !important;
+  font-weight: 700 !important;
+  color: #F4F1EA;
+}
+
+.design-eyebrow {
+  font-size: 0.8rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.25em !important;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.design-body {
+  font-size: 1rem !important;
+  font-weight: 400 !important;
+  color: #D5D0C5 !important;
+  line-height: 1.75;
+}
+
+.design-caption {
+  font-size: 0.85rem !important;
+  font-weight: 500 !important;
+  color: #C5C0B5 !important;
+}
+
+/* --- 2. العناصر البصرية الموحدة (UI Elements) --- */
+.gold-card {
+  background-color: #0B0C0E;
+  border: 1px solid rgba(194, 165, 129, 0.3);
+}
+
+.gold-gradient-text {
+  background: linear-gradient(135deg, #FFF6E5 0%, #C2A581 50%, #947854 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* --- 3. حاوية الخدمات والكروت (Vertical Cards) --- */
+.services-container {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    align-items: stretch;
+}
+
+.vertical-card {
+    background-color: transparent;
+    width: 100%;
+    min-height: 340px;
+    perspective: 1000px;
+}
+
+.vertical-card > div {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
+    transform-style: preserve-3d;
+}
+
+.vertical-card .is-flipped {
+    transform: rotateY(180deg);
+}
+
+.vertical-card-back {
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    padding: 24px;
+    background: #0b0c0e;
+    border: 1px solid rgba(194, 165, 129, 0.4);
+    border-radius: 1rem;
+}
+
+/* --- 4. الشريط المتحرك (Marquee Ticker) --- */
+.ticker-track {
+    display: flex;
+    width: max-content;
+    animation: tickerScroll 45s linear infinite;
+}
+
+@keyframes tickerScroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* --- 5. نظام الأزرار الموحد (Buttons System) --- */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 0.875rem 2rem;
+  border-radius: 0.75rem;
+  background-color: #C2A581;
+  color: #0b0c0e;
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 25px rgba(194, 165, 129, 0.35);
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background-color: #d4b995;
+  transform: scale(1.03);
+  box-shadow: 0 0 35px rgba(194, 165, 129, 0.5);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.875rem 2rem;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(194, 165, 129, 0.4);
+  background-color: rgba(11, 12, 14, 0.6);
+  color: #E5DDD0;
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  font-weight: 600;
+  font-size: 0.8rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
+  background-color: rgba(194, 165, 129, 0.15);
+  border-color: #C2A581;
+  color: #ffffff;
+}
+
+/* --- تخصيص الـ Scrollbar بلون ذهبي واضح وفاخر --- */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0B0C0E; /* خلفية داكنة نقية */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #C2A581; /* لون ذهبي صريح وواضح */
+  border-radius: 5px;
+  border: 2px solid #0B0C0E;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #d4b995; /* إضاءة خفيفة عند الـ Hover */
+}
+
+/* لمتصفح Firefox */
+* {
+  scrollbar-color: #C2A581 #0B0C0E;
+  scrollbar-width: thin;
+}
