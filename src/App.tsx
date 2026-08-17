@@ -130,12 +130,12 @@ export default function App() {
                 </li>
                 <li>
                   <button onClick={() => handleNavigate('projects')} className="text-[#a39d91] hover:text-[#C2A581] transition-colors cursor-pointer">
-                    Projects & Case Studies
+                    Projects 
                   </button>
                 </li>
                 <li>
                   <button onClick={() => handleNavigate('expertise')} className="text-[#a39d91] hover:text-[#C2A581] transition-colors cursor-pointer">
-                    Expertise & Services
+                    Expertise
                   </button>
                 </li>
                 <li>
