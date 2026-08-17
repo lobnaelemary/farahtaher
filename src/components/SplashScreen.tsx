@@ -47,16 +47,15 @@ export const SplashScreen: React.FC<SplashScreenProps> = ({ onComplete }) => {
         ease: 'power2.in'
       })
 
-      // ضبط الإحداثيات بدقة متناهية لتستقر جوة النافبار/السايدبار مباشرة
+      // ضبط إحداثيات انتقال اللوجو بدقة ليستقر داخل النافبار تماماً
       .to(logoWrapperRef.current, {
-        scale: 0.24,
+        scale: 0.28,
         x: () => {
           const isLargeScreen = window.innerWidth >= 1024;
-          return isLargeScreen ? -window.innerWidth / 2 + 48 : 0;
+          return isLargeScreen ? -window.innerWidth / 2 + 56 : -window.innerWidth / 2 + 48;
         },
         y: () => {
-          const isLargeScreen = window.innerWidth >= 1024;
-          return isLargeScreen ? -window.innerHeight / 2 + 52 : -window.innerHeight / 2 + 40;
+          return -window.innerHeight / 2 + 36;
         },
         duration: 1.1,
         ease: 'power3.inOut'
@@ -105,7 +104,7 @@ export const SplashScreen: React.FC<SplashScreenProps> = ({ onComplete }) => {
       ref={containerRef}
       id="splash-screen-overlay"
       onClick={handleSkip}
-      className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#0b0c0e] text-center select-none cursor-pointer overflow-hidden"
+      className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-[#0b0c0e] text-center select-none cursor-pointer overflow-hidden"
     >
       {/* Background Radial Glow & Ambient Particles */}
       <div
@@ -132,21 +131,19 @@ export const SplashScreen: React.FC<SplashScreenProps> = ({ onComplete }) => {
         </div>
 
         {/* Typography Layout */}
-<div ref={typographyRef} className="flex flex-col items-center space-y-2 opacity-0">
-  {/* الاسم بحجم ضخم وخط مميز جداً */}
-  <h1 className="text-4xl sm:text-6xl font-serif-display font-black tracking-[0.15em] uppercase text-[#f9f3ea]">
-    FARAH TAHER
-  </h1>
-  
-  {/* المهنة بحجم أصغر بكتير وبخط رفيع لتبرز الاسم */}
-  <div className="flex items-center gap-3 pt-1">
-    <span className="w-8 h-[1px] bg-[#C2A581]/50" />
-    <p className="font-sans text-sm sm:text-base text-[#C2A581] tracking-[0.3em] uppercase font-light">
-      Analytics Consultant
-    </p>
-    <span className="w-8 h-[1px] bg-[#C2A581]/50" />
-  </div>
-</div>
+        <div ref={typographyRef} className="flex flex-col items-center space-y-2 opacity-0">
+          <h1 className="text-4xl sm:text-6xl font-serif-display font-black tracking-[0.15em] uppercase text-[#f9f3ea]">
+            FARAH TAHER
+          </h1>
+          
+          <div className="flex items-center gap-3 pt-1">
+            <span className="w-8 h-[1px] bg-[#C2A581]/50" />
+            <p className="font-sans text-sm sm:text-base text-[#C2A581] tracking-[0.3em] uppercase font-light">
+              Analytics Consultant
+            </p>
+            <span className="w-8 h-[1px] bg-[#C2A581]/50" />
+          </div>
+        </div>
       </div>
     </div>
   );

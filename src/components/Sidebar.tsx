@@ -35,10 +35,8 @@ export const Sidebar: React.FC<SidebarProps> = ({
       const currentScrollY = window.scrollY;
 
       if (currentScrollY > lastScrollY && currentScrollY > 80) {
-        // التمرير لأسفل - إخفاء النافبار
         setIsVisible(false);
       } else {
-        // التمرير لأعلى - إظهار النافبار
         setIsVisible(true);
       }
 
@@ -72,7 +70,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
 
   return (
     <>
-      {/* Top Navbar Header (Desktop & Mobile Unified) مع تطبيق تأثير الإخفاء والظهور */}
+      {/* Top Navbar Header */}
       <header className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 lg:px-12 py-4 bg-[#0b0c0e]/90 backdrop-blur-md border-b border-[#C2A581]/20 shadow-lg select-none transition-transform duration-300 ${
         isVisible ? 'translate-y-0' : '-translate-y-full'
       }`}>

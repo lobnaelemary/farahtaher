@@ -185,8 +185,8 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onNavigate }) => {
   return (
     <>
       <div ref={containerRef} className="space-y-16 lg:space-y-20 pb-8">
-        {/* Top Header */}
-        <div className="space-y-6 pt-2 overflow-x-hidden" data-gsap="stagger">
+        {/* Top Header - تم إزالة أي مشكلة تخص السكرول أو التدفق */}
+        <div className="space-y-6 pt-2" data-gsap="stagger">
           <div className="flex items-center gap-3">
             <span className="w-8 h-[1.5px] bg-[#C2A581]" />
             <span className="design-eyebrow">
@@ -195,7 +195,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onNavigate }) => {
           </div>
 
           <div className="space-y-4">
-            <h1 className="text-xl sm:text-3xl lg:text-4xl font-serif-display font-bold text-[#f9f3ea] tracking-tight uppercase whitespace-nowrap">
+            <h1 className="text-xl sm:text-3xl lg:text-4xl font-serif-display font-bold text-[#f9f3ea] tracking-tight uppercase">
               DRIVING IMPACT THROUGH DATA MASTERY.
             </h1>
             <p className="design-eyebrow text-[#C2A581] pt-2">
@@ -381,7 +381,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onNavigate }) => {
             ))}
           </div>
 
-          {/* زر VIEW ALL SKILLS & TOOLS بالستايل الممحاط (Outlined) زي ما طلبتِ */}
+          {/* زر VIEW ALL SKILLS & TOOLS بالستايل الممحاط (Outlined) */}
           <button
             onClick={() => setIsSkillsModalOpen(true)}
             className="flex items-center justify-between gap-4 w-full px-7 py-4 rounded-xl border border-[#C2A581]/40 bg-[#0b0c0e] hover:bg-[#C2A581] text-[#C2A581] hover:text-[#0b0c0e] font-sans font-bold text-xs tracking-widest uppercase transition-all duration-300 cursor-pointer group shadow-sm mt-4"
@@ -431,7 +431,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onNavigate }) => {
           </div>
         </div>
 
-        {/* Bottom Final Contextual CTA Section - تم جعل زر START A CONVERSATION باللون الذهبي الممتلئ (Solid Gold) مثل باقي الـ CTA */}
+        {/* Bottom Final Contextual CTA Section - تم جعل زر START A CONVERSATION باللون الذهبي الممتلئ (Solid Gold) مطاباقاً لباقي الصفحات */}
         <div className="mt-12 pt-6 pb-2 flex flex-col items-center justify-center text-center space-y-4" data-gsap="stagger">
           <span className="design-eyebrow">
             READY TO COLLABORATE?
