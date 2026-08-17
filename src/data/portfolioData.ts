@@ -9,7 +9,7 @@ export const PERSONAL_INFO = {
   phone: '+1 (437) 000-0000',
   linkedin: 'https://linkedin.com/in/farah-taher',
   github: 'https://github.com/farahtaher',
-  heroTagline: 'I turn data into meaningful insights that drive impact.',
+  // heroTagline: 'I turn data into meaningful insights that drive impact.',
   taglineSecondary: 'Transforming complex, multi-source data into clear insights, automated workflows, and measurable business impact.',
   bio: `I’m Farah, a Toronto-based Data Specialist with 3+ years of experience delivering analytical solutions across financial services, supply chain, transportation, and public-sector environments. I completed my Master of Data Science & Analytics, specializing in Natural Language Processing (NLP) and advanced data visualization. My work focuses on turning messy, fragmented data into clear, actionable insights that help organizations improve efficiency, strengthen decision-making, and achieve measurable results.`,
   aboutDetailed: `Across my roles, I’ve supported operational teams, commercial leaders, and executives by developing automated reporting pipelines, performance dashboards, and analytical frameworks that improve efficiency and strengthen decision-making. My work has contributed to over $1M in cost savings through improved compliance, optimized workflows, and data-driven operational improvements.

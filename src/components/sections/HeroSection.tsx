@@ -135,7 +135,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             <p className="design-body max-w-xl text-xs sm:text-base lg:text-lg leading-relaxed text-[#d5d0c5]">
               {PERSONAL_INFO.heroTagline}{' '}
               <span className="text-[#f5ebd8] font-medium">
-                Transforming complex, multi-source data into clear insights, automated workflows, and measurable business impact.
+                I turn data into meaningful insights that drive impact. Transforming complex, multi-source data into clear insights, automated workflows, and measurable business impact.
               </span>
             </p>
 
