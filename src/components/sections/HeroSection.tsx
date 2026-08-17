@@ -375,44 +375,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
         </div>
       </div>
 
-      <div className="text-center space-y-2 mb-8 pt-8">
-        <span className="design-eyebrow text-[#C2A581]">MY CORE APPROACH</span>
-        <h2 className="design-h2 text-[#f9f3ea]">
-          How I Deliver Value
-        </h2>
-      </div>
+      
 
-      {/* Strategic Value Pillars */}
-      <div className="max-w-4xl mx-auto space-y-6 pt-2">
-        {CORE_PILLARS.map((pillar, idx) => (
-          <div 
-            key={idx} 
-            ref={(el) => (pillarsRef.current[idx] = el)}
-            className="pillar-card p-6 md:p-8 rounded-2xl bg-[#0b0c0e] border border-[#C2A581]/30 shadow-xl flex flex-col md:flex-row items-start md:items-center justify-between gap-6 hover:border-[#C2A581]/70 transition-all duration-300"
-          >
-            <div className="flex items-center gap-6">
-              <div className="space-y-1.5">
-                <div className="design-eyebrow text-[#C2A581]">
-                  {pillar.title}
-                </div>
-                <p className="design-body text-sm md:text-base text-[#d5d0c5] leading-relaxed">
-                  {pillar.desc}
-                </p>
-              </div>
-            </div>
-          </div>
-        ))}
-
-        <div className="pt-6 flex justify-center">
-          <button
-            onClick={() => onNavigate('expertise')}
-            className="flex items-center justify-between gap-4 px-7 py-3.5 rounded-xl border border-[#C2A581]/40 bg-[#0b0c0e] hover:bg-[#C2A581] text-[#C2A581] hover:text-[#0b0c0e] font-sans font-bold text-xs tracking-widest uppercase transition-all duration-300 cursor-pointer group shadow-sm"
-          >
-            <span>EXPLORE MY EXPERTISE</span>
-            <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1.5" />
-          </button>
-        </div>
-      </div>
+      
 
       {/* Bottom CTA */}
       <div className="mt-16 pt-6 pb-4 flex flex-col items-center justify-center text-center space-y-4" data-gsap="stagger">
