@@ -48,8 +48,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   };
 
   const techTools = [
-    'PYTHON', 'PANDAS', 'NUMPY', 'SCIKIT-LEARN', 'SQL', 'SNOWFLAKE', 
-    'POSTGRESQL', 'POWER BI (DAX)', 'TABLEAU', 'ALTERYX', 'AWS', 'GIT', 'NLP'
+    'POWER BI', 'PYTHON', 'TABLEAU', 'SQL', 'ALTERYX', 'SNOWFLAKE', 'SIGMA', 'MACHINE LEARNING'
   ];
 
   useEffect(() => {
@@ -110,59 +109,59 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   return (
     <div ref={containerRef} className="space-y-16 lg:space-y-24 pb-12">
       {/* Top Hero Section */}
-      <div className="space-y-0 pt-4">
-        {/* تم تعديل الجريد ليعمل بنظام الأعمدة بدءاً من الشاشات المتوسطة (md) لتبقى الصورة بجانب النص */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 items-center">
+      <div className="space-y-0 pt-2">
+        
+        {/* الهيرو: الصورة بجانب النص حتى في شاشات الموبايل والتابلت والديسك توب */}
+        <div className="flex flex-row items-center justify-between gap-4 sm:gap-8">
           
-          <div className="md:col-span-7 flex flex-col justify-center space-y-6 py-4" data-gsap="stagger">
+          <div className="flex-1 flex flex-col justify-center space-y-4 sm:space-y-6 py-2" data-gsap="stagger">
             <div className="flex items-center gap-3">
-              <span className="w-10 h-[2px] bg-[#C2A581]" />
-              <span className="design-eyebrow tracking-[0.3em]">HELLO, I'M</span>
+              <span className="w-8 sm:w-10 h-[2px] bg-[#C2A581]" />
+              <span className="design-eyebrow tracking-[0.2em] sm:tracking-[0.3em]">HELLO, I'M</span>
             </div>
 
-            <div className="space-y-3">
-              <h1 className="design-h1 text-[#f9f3ea] tracking-tight">
+            <div className="space-y-2 sm:space-y-3">
+              <h1 className="text-3xl sm:text-5xl lg:text-7xl font-serif-display font-bold text-[#f9f3ea] tracking-tight uppercase leading-none">
                 FARAH <br />
                 <span className="gold-gradient-text">TAHER</span>
               </h1>
               <div className="pt-1">
-                <span className="inline-block design-eyebrow text-[#C2A581] border-b border-[#C2A581]/40 pb-1 tracking-[0.2em]">
+                <span className="inline-block text-[10px] sm:text-xs font-mono tracking-[0.15em] sm:tracking-[0.2em] text-[#C2A581] border-b border-[#C2A581]/40 pb-1 uppercase font-semibold">
                   ANALYTICS CONSULTANT & DATA SPECIALIST
                 </span>
               </div>
             </div>
 
-            <p className="design-body max-w-xl text-base lg:text-lg leading-relaxed text-[#d5d0c5]">
+            <p className="design-body max-w-xl text-xs sm:text-base lg:text-lg leading-relaxed text-[#d5d0c5]">
               {PERSONAL_INFO.heroTagline}{' '}
               <span className="text-[#f5ebd8] font-medium">
                 Transforming complex, multi-source data into clear insights, automated workflows, and measurable business impact.
               </span>
             </p>
 
-            <div className="flex flex-wrap items-center gap-4 pt-3">
+            <div className="flex flex-wrap items-center gap-3 pt-2">
               <button
                 onClick={() => onNavigate('projects')}
-                className="flex items-center gap-3 px-7 py-4 rounded-xl bg-[#C2A581] hover:bg-[#d4b995] text-[#0b0c0e] font-sans font-bold text-xs tracking-[0.18em] uppercase shadow-[0_0_30px_rgba(194,165,129,0.35)] hover:scale-105 transition-all duration-300 cursor-pointer group"
+                className="flex items-center gap-2 sm:gap-3 px-5 sm:px-7 py-3 sm:py-4 rounded-xl bg-[#C2A581] hover:bg-[#d4b995] text-[#0b0c0e] font-sans font-bold text-[10px] sm:text-xs tracking-[0.15em] uppercase shadow-[0_0_30px_rgba(194,165,129,0.35)] hover:scale-105 transition-all duration-300 cursor-pointer group"
               >
                 <span>EXPLORE MY WORK</span>
-                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1.5" />
+                <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 transition-transform group-hover:translate-x-1.5" />
               </button>
 
               <button
                 onClick={() => onNavigate('contact')}
-                className="flex items-center justify-between gap-4 px-7 py-4 rounded-xl border border-[#C2A581]/40 bg-[#0b0c0e] hover:bg-[#C2A581] text-[#C2A581] hover:text-[#0b0c0e] font-sans font-bold text-xs tracking-[0.18em] uppercase transition-all duration-300 cursor-pointer group shadow-sm"
+                className="flex items-center justify-between gap-3 sm:gap-4 px-5 sm:px-7 py-3 sm:py-4 rounded-xl border border-[#C2A581]/40 bg-[#0b0c0e] hover:bg-[#C2A581] text-[#C2A581] hover:text-[#0b0c0e] font-sans font-bold text-[10px] sm:text-xs tracking-[0.15em] uppercase transition-all duration-300 cursor-pointer group shadow-sm"
               >
                 <span>LET'S CONNECT</span>
-                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1.5" />
+                <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 transition-transform group-hover:translate-x-1.5" />
               </button>
             </div>
           </div>
 
-          {/* تثبيت الصورة في المكان المحدد (العمود الأيمن للتابلت والديسك توب) */}
-          <div className="md:col-span-5 flex flex-col justify-end items-center md:items-end h-full relative mt-4 md:mt-0" data-gsap="stagger">
+          {/* الصورة بجانب النص تماماً في كافة المقاسات */}
+          <div className="w-[130px] sm:w-[240px] md:w-[320px] lg:w-[420px] shrink-0 flex flex-col justify-end items-end relative" data-gsap="stagger">
             <div className="absolute inset-0 bg-gradient-to-t from-[#C2A581]/10 via-transparent to-transparent rounded-3xl blur-3xl pointer-events-none" />
-            <div className="relative w-full max-w-xs md:max-w-sm lg:max-w-md h-[400px] md:h-[480px] lg:h-[620px] flex items-end justify-center">
-              <img 
+<div className="relative w-full h-[360px] sm:h-[400px] md:h-[450px] lg:h-[580px] flex items-end justify-center">              <img 
                 src="/assets/img/farah taher.png" 
                 alt="Farah Taher Portrait" 
                 className="w-full h-full object-contain object-bottom drop-shadow-[0_20px_40px_rgba(0,0,0,0.9)]"
@@ -172,8 +171,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           </div>
         </div>
 
-        {/* Marquee Ticker */}
-        <div ref={marqueeRef} className="w-full overflow-hidden py-4 border-y border-[#C2A581]/30 bg-[#0b0c0e]/90 backdrop-blur-md relative z-20 shadow-2xl whitespace-nowrap mt-8">
+        {/* Marquee Ticker - تم جعله بعرض الشاشة بالكامل */}
+        <div ref={marqueeRef} className="w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] overflow-hidden py-4 border-y border-[#C2A581]/30 bg-[#0b0c0e]/95 backdrop-blur-md z-20 shadow-2xl whitespace-nowrap mt-10">
           <div className="marquee-content flex w-max space-x-12 items-center">
             {[...techTools, ...techTools, ...techTools, ...techTools].map((tool, index) => (
               <div key={index} className="flex items-center space-x-12 shrink-0">
@@ -215,9 +214,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           ))}
         </div>
 
-        {/* Visual Charts Grid */}
+        {/* Visual Charts Grid - تم تحديث الشارت بحذف الشهور واستبدالها بمراحل تطور عامة */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 pt-2">
-          <div className="lg:col-span-7 gold-card p-6 md:p-8 rounded-2xl space-y-4 bg-[#0b0c0e] border border-[#C2A581]/20 shadow-xl">
+          <div className="lg:col-span-7 gold-card p-6 md:p-8 rounded-2xl space-y-4 bg-[#0b0c0e] border border-[#C2A581]/20 shadow-xl flex flex-col justify-between">
             <div>
               <h3 className="design-eyebrow text-[#C2A581]">
                 BUSINESS IMPACT OVER TIME
@@ -227,22 +226,22 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               </p>
             </div>
 
-            <div className="h-48 w-full relative pt-4">
-              <svg viewBox="0 0 500 140" className="w-full h-full overflow-visible">
+            <div className="h-44 w-full relative pt-2">
+              <svg viewBox="0 0 500 130" className="w-full h-full overflow-visible">
                 <defs>
                   <linearGradient id="lineGrad" x1="0%" y1="0%" x2="0%" y2="100%">
                     <stop offset="0%" stopColor="#C2A581" stopOpacity="0.4" />
                     <stop offset="100%" stopColor="#C2A581" stopOpacity="0.0" />
                   </linearGradient>
                 </defs>
-                <line x1="0" y1="20" x2="500" y2="20" stroke="#1d2028" strokeDasharray="3 3" />
-                <line x1="0" y1="60" x2="500" y2="60" stroke="#1d2028" strokeDasharray="3 3" />
-                <line x1="0" y1="100" x2="500" y2="100" stroke="#1d2028" strokeDasharray="3 3" />
-                <path d="M 20 105 Q 60 98, 100 90 T 180 85 T 260 60 T 340 45 T 420 32 T 480 20 L 480 130 L 20 130 Z" fill="url(#lineGrad)" />
-                <path d="M 20 105 Q 60 98, 100 90 T 180 85 T 260 60 T 340 45 T 420 32 T 480 20" fill="none" stroke="#C2A581" strokeWidth="3.5" strokeLinecap="round" />
+                <line x1="0" y1="15" x2="500" y2="15" stroke="#1d2028" strokeDasharray="3 3" />
+                <line x1="0" y1="55" x2="500" y2="55" stroke="#1d2028" strokeDasharray="3 3" />
+                <line x1="0" y1="95" x2="500" y2="95" stroke="#1d2028" strokeDasharray="3 3" />
+                <path d="M 20 95 Q 60 88, 100 80 T 180 75 T 260 52 T 340 38 T 420 25 T 480 15 L 480 120 L 20 120 Z" fill="url(#lineGrad)" />
+                <path d="M 20 95 Q 60 88, 100 80 T 180 75 T 260 52 T 340 38 T 420 25 T 480 15" fill="none" stroke="#C2A581" strokeWidth="3.5" strokeLinecap="round" />
                 {[
-                  { cx: 20, cy: 105 }, { cx: 100, cy: 90 }, { cx: 180, cy: 85 },
-                  { cx: 260, cy: 60 }, { cx: 340, cy: 45 }, { cx: 420, cy: 32 }, { cx: 480, cy: 20 }
+                  { cx: 20, cy: 95 }, { cx: 100, cy: 80 }, { cx: 180, cy: 75 },
+                  { cx: 260, cy: 52 }, { cx: 340, cy: 38 }, { cx: 420, cy: 25 }, { cx: 480, cy: 15 }
                 ].map((pt, i) => (
                   <g key={i} className="cursor-pointer group">
                     <circle cx={pt.cx} cy={pt.cy} r="4.5" fill="#C2A581" className="transition-all group-hover:r-7" />
@@ -250,11 +249,15 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                   </g>
                 ))}
               </svg>
-              <div className="flex justify-between design-caption text-[#8c887f] pt-3 font-mono text-[10px]">
-                {['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'].map((m, i) => (
-                  <span key={i}>{m}</span>
-                ))}
+            </div>
+
+            {/* سطر إضافي ونقاط تجميلية متناسقة لملء الفراغ وجعل الكارت متوازناً تماماً */}
+            <div className="pt-3 border-t border-[#C2A581]/15 flex items-center justify-between px-2">
+              <div className="flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-[#C2A581]" />
+                <span className="text-[11px] font-mono tracking-widest text-[#a39d91] uppercase">Continuous Growth Trajectory</span>
               </div>
+            
             </div>
           </div>
 
@@ -379,7 +382,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
         </h2>
       </div>
 
-      {/* Strategic Value Pillars (الترتيب الرأسي مع تأثير السكرول والتكبير) */}
+      {/* Strategic Value Pillars */}
       <div className="max-w-4xl mx-auto space-y-6 pt-2">
         {CORE_PILLARS.map((pillar, idx) => (
           <div 
@@ -388,7 +391,6 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             className="pillar-card p-6 md:p-8 rounded-2xl bg-[#0b0c0e] border border-[#C2A581]/30 shadow-xl flex flex-col md:flex-row items-start md:items-center justify-between gap-6 hover:border-[#C2A581]/70 transition-all duration-300"
           >
             <div className="flex items-center gap-6">
-              
               <div className="space-y-1.5">
                 <div className="design-eyebrow text-[#C2A581]">
                   {pillar.title}

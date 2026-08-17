@@ -35,6 +35,18 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onNavigate }) => {
   const circlesRef = useRef<(SVGCircleElement | null)[]>([]);
   const barsRef = useRef<(HTMLDivElement | null)[]>([]);
 
+  // منع سكرول الصفحة الخلفية عند فتح البوب أب
+  useEffect(() => {
+    if (isSkillsModalOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isSkillsModalOpen]);
+
   const milestoneIcons = {
     GraduationCap: GraduationCap,
     BookOpen: BookOpen,
@@ -174,7 +186,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onNavigate }) => {
     <>
       <div ref={containerRef} className="space-y-16 lg:space-y-20 pb-8">
         {/* Top Header */}
-        <div className="space-y-6 pt-2" data-gsap="stagger">
+        <div className="space-y-6 pt-2 overflow-x-hidden" data-gsap="stagger">
           <div className="flex items-center gap-3">
             <span className="w-8 h-[1.5px] bg-[#C2A581]" />
             <span className="design-eyebrow">
@@ -183,9 +195,8 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onNavigate }) => {
           </div>
 
           <div className="space-y-4">
-            <h1 className="design-h1 text-[#f9f3ea] leading-[1.05]">
-              DRIVING IMPACT THROUGH <br />
-              <span className="text-gold">DATA MASTERY</span>.
+            <h1 className="text-xl sm:text-3xl lg:text-4xl font-serif-display font-bold text-[#f9f3ea] tracking-tight uppercase whitespace-nowrap">
+              DRIVING IMPACT THROUGH DATA MASTERY.
             </h1>
             <p className="design-eyebrow text-[#C2A581] pt-2">
               I TURN DATA INTO MEANINGFUL INSIGHTS THAT DRIVE IMPACT AND SUSTAINABLE GROWTH.
@@ -279,7 +290,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onNavigate }) => {
               </h2>
             </div>
             <p className="design-body text-sm">
-              Core leadership and collaborative values brought to every project engagement (&gt;80%)
+              Core leadership and collaborative values brought to every project engagement
             </p>
           </div>
 
@@ -370,12 +381,13 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onNavigate }) => {
             ))}
           </div>
 
+          {/* زر VIEW ALL SKILLS & TOOLS بالستايل الممحاط (Outlined) زي ما طلبتِ */}
           <button
             onClick={() => setIsSkillsModalOpen(true)}
-            className="btn-secondary w-full mt-4"
+            className="flex items-center justify-between gap-4 w-full px-7 py-4 rounded-xl border border-[#C2A581]/40 bg-[#0b0c0e] hover:bg-[#C2A581] text-[#C2A581] hover:text-[#0b0c0e] font-sans font-bold text-xs tracking-widest uppercase transition-all duration-300 cursor-pointer group shadow-sm mt-4"
           >
-            <span>VIEW ALL SKILLS</span>
-            <ChevronRight className="w-4 h-4" />
+            <span>VIEW ALL SKILLS & TOOLS</span>
+            <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1.5" />
           </button>
         </div>
 
@@ -396,8 +408,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onNavigate }) => {
                 “
               </span>
               <blockquote className="font-serif-classic text-lg sm:text-xl text-[#f3ebde] italic leading-snug pt-2">
-                Data is more than numbers—it’s the story behind{' '}
-                <span className="text-gold font-semibold">every decision</span>.
+                Data is more than numbers—it’s the story behind every decision.
               </blockquote>
             </div>
 
@@ -420,7 +431,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onNavigate }) => {
           </div>
         </div>
 
-        {/* Bottom Final Contextual CTA Section */}
+        {/* Bottom Final Contextual CTA Section - تم جعل زر START A CONVERSATION باللون الذهبي الممتلئ (Solid Gold) مثل باقي الـ CTA */}
         <div className="mt-12 pt-6 pb-2 flex flex-col items-center justify-center text-center space-y-4" data-gsap="stagger">
           <span className="design-eyebrow">
             READY TO COLLABORATE?
@@ -430,7 +441,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onNavigate }) => {
           </h2>
           <button
             onClick={() => onNavigate('contact')}
-            className="btn-primary mt-2"
+            className="mt-2 flex items-center gap-3 px-8 py-4 rounded-xl bg-[#C2A581] hover:bg-[#d4b995] text-[#0b0c0e] font-sans font-bold text-xs tracking-widest uppercase transition-all shadow-[0_0_30px_rgba(194,165,129,0.4)] hover:scale-105 cursor-pointer group"
           >
             <span>START A CONVERSATION</span>
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1.5" />
@@ -440,10 +451,10 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onNavigate }) => {
 
       {/* Technical Capabilities POPUP Modal */}
       {isSkillsModalOpen && (
-        <div className="fixed inset-0 z-[99999] flex items-center justify-center p-4 sm:p-6 bg-black/85 backdrop-blur-md">
-          <div className="relative w-full max-w-4xl max-h-[85vh] overflow-y-auto bg-[#0b0c0e] border border-[#C2A581]/40 rounded-3xl p-6 sm:p-8 shadow-2xl space-y-6 scrollbar-thin scrollbar-thumb-[#C2A581]/30">
+        <div className="fixed inset-0 z-[99999] flex items-center justify-center p-4 sm:p-6 bg-black/90 backdrop-blur-md">
+          <div className="relative w-full max-w-4xl max-h-[85vh] bg-[#0b0c0e] border border-[#C2A581]/40 rounded-3xl shadow-2xl overflow-hidden flex flex-col isolate">
             
-            <div className="flex items-center justify-between border-b border-[#C2A581]/20 pb-4 sticky top-0 bg-[#0b0c0e] z-20 pt-2">
+            <div className="flex items-center justify-between px-6 sm:px-8 py-5 border-b border-[#C2A581]/20 bg-[#0b0c0e] z-50 shrink-0 shadow-lg">
               <div className="flex items-center gap-3">
                 <span className="w-8 h-[1.5px] bg-[#C2A581]" />
                 <span className="design-eyebrow">
@@ -458,52 +469,54 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onNavigate }) => {
               </button>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 pt-2">
-              {technicalCategories.map((cat, idx) => {
-                const Icon = cat.icon;
-                return (
-                  <div 
-                    key={idx} 
-                    className="gold-card p-5 rounded-2xl space-y-3.5 flex flex-col justify-between bg-[#111317] border border-[#C2A581]/20"
-                  >
-                    <div className="space-y-2.5">
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-2.5">
-                          <div className="p-2 rounded-xl bg-[#121418] border border-[#C2A581]/25 text-[#C2A581] shadow-inner">
-                            <Icon className="w-4 h-4" />
+            <div className="p-6 sm:p-8 overflow-y-auto space-y-6 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] flex-1 bg-[#0b0c0e] relative z-10">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                {technicalCategories.map((cat, idx) => {
+                  const Icon = cat.icon;
+                  return (
+                    <div 
+                      key={idx} 
+                      className="gold-card p-5 rounded-2xl space-y-3.5 flex flex-col justify-between bg-[#111317] border border-[#C2A581]/20"
+                    >
+                      <div className="space-y-2.5">
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center gap-2.5">
+                            <div className="p-2 rounded-xl bg-[#121418] border border-[#C2A581]/25 text-[#C2A581] shadow-inner">
+                              <Icon className="w-4 h-4" />
+                            </div>
+                            <h3 className="font-serif-classic text-base font-bold text-[#f5ebd8]">
+                              {cat.title}
+                            </h3>
                           </div>
-                          <h3 className="font-serif-classic text-base font-bold text-[#f5ebd8]">
-                            {cat.title}
-                          </h3>
-                        </div>
-                        <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-[#C2A581]/15 border border-[#C2A581]/30 text-gold uppercase font-bold">
-                          {cat.level}
-                        </span>
-                      </div>
-
-                      <p className="design-body text-xs">
-                        {cat.desc}
-                      </p>
-                    </div>
-
-                    <div className="pt-2.5 border-t border-[#C2A581]/20">
-                      <div className="design-caption uppercase tracking-wider mb-1.5 text-[#C5C0B5]">
-                        Core Technologies & Frameworks:
-                      </div>
-                      <div className="flex flex-wrap gap-1.5">
-                        {cat.tools.map((tool, tIdx) => (
-                          <span
-                            key={tIdx}
-                            className="text-[11px] font-mono px-2 py-0.5 rounded-lg bg-[#16181F] border border-[#C2A581]/25 text-[#E5DDD0] font-medium"
-                          >
-                            {tool}
+                          <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-[#C2A581]/15 border border-[#C2A581]/30 text-gold uppercase font-bold">
+                            {cat.level}
                           </span>
-                        ))}
+                        </div>
+
+                        <p className="design-body text-xs">
+                          {cat.desc}
+                        </p>
+                      </div>
+
+                      <div className="pt-2.5 border-t border-[#C2A581]/20">
+                        <div className="design-caption uppercase tracking-wider mb-1.5 text-[#C5C0B5]">
+                          Core Technologies & Frameworks:
+                        </div>
+                        <div className="flex flex-wrap gap-1.5">
+                          {cat.tools.map((tool, tIdx) => (
+                            <span
+                              key={tIdx}
+                              className="text-[11px] font-mono px-2 py-0.5 rounded-lg bg-[#16181F] border border-[#C2A581]/25 text-[#E5DDD0] font-medium"
+                            >
+                              {tool}
+                            </span>
+                          ))}
+                        </div>
                       </div>
                     </div>
-                  </div>
-                );
-              })}
+                  );
+                })}
+              </div>
             </div>
 
           </div>

@@ -98,7 +98,7 @@ export default function App() {
               <div className="flex items-center gap-3">
                 <div className="w-12 h-12 flex items-center justify-center">
                   <img 
-                    src="/assets/img/farah logo gold v2 3.png" 
+                    src="/assets/img/logo.png" 
                     alt="Farah Taher Logo" 
                     className="w-full h-full object-contain drop-shadow-[0_0_12px_rgba(194,165,129,0.5)]" 
                   />

@@ -113,13 +113,7 @@ export const ExpertiseSection: React.FC<ExpertiseSectionProps> = ({ onNavigate }
           </div>
         </div>
 
-        {/* Download CV Button */}
-        <div className="pt-4 flex justify-end">
-          <button className="btn-secondary">
-            <Download className="w-4 h-4" />
-            <span>DOWNLOAD CV</span>
-          </button>
-        </div>
+       
       </div>
 
       {/* Bottom CTA */}
