@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   X,
   CheckCircle2,
@@ -27,6 +27,18 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
   const [copiedCode, setCopiedCode] = useState(false);
   const [activeTab, setActiveTab] = useState<'overview' | 'data' | 'query' | 'visuals'>('overview');
 
+  // منع سكرول الصفحة الرئيسية خلف البوب أب تماماً
+  useEffect(() => {
+    if (project) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [project]);
+
   if (!project) return null;
 
   const handleCopyCode = () => {
@@ -38,22 +50,22 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 overflow-y-auto bg-black/85 backdrop-blur-xl flex justify-center p-3 md:p-6 lg:p-10 animate-fadeIn">
-      <div className="relative w-full max-w-6xl bg-[#0b0c0e] border border-[#C2A581]/30 rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.85)] overflow-hidden my-auto">
+    <div className="fixed inset-0 z-[99999] bg-black/90 backdrop-blur-xl flex items-center justify-center p-3 md:p-6 lg:p-10 animate-fadeIn">
+      
+      {/* الصندوق الرئيسي للبوب أب */}
+      <div className="relative w-full max-w-6xl max-h-[90vh] bg-[#0b0c0e] border border-[#C2A581]/40 rounded-3xl shadow-[0_20px_60px_rgba(0,0,0,0.9)] overflow-hidden flex flex-col isolate">
         
-        {/* Top Header Bar with Close Button */}
-        <div className="flex items-center justify-end px-6 py-4 bg-[#0b0c0e] border-b border-[#C2A581]/15">
-          <button
-            onClick={onClose}
-            className="p-2 rounded-xl bg-[#121418] border border-[#C2A581]/30 text-[#C2A581] hover:bg-[#C2A581] hover:text-[#0b0c0e] transition-all cursor-pointer"
-            title="Close"
-          >
-            <X className="w-4 h-4" />
-          </button>
-        </div>
+        {/* زر الإغلاق العائم بحرية في الزاوية بدون أي أشرطة أو خطوط عرضية */}
+        <button
+          onClick={onClose}
+          className="absolute top-5 right-5 z-[100] p-2.5 rounded-xl bg-[#121418] border border-[#C2A581]/40 text-[#C2A581] hover:bg-[#C2A581] hover:text-[#0b0c0e] transition-all cursor-pointer shadow-lg"
+          title="Close"
+        >
+          <X className="w-4 h-4" />
+        </button>
 
-        {/* Content Body */}
-        <div className="p-6 md:p-8 lg:p-10 space-y-8 max-h-[82vh] overflow-y-auto bg-[#0b0c0e]">
+        {/* Content Body الوحيد الذي يحتوي على السكرول والمحتوى بحرية تامة */}
+        <div className="p-6 md:p-8 lg:p-10 pt-16 md:pt-12 space-y-8 overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] flex-1 bg-[#0b0c0e] relative z-10">
           
           {/* Main Title & Meta Header */}
           <div className="space-y-4 pt-2">
@@ -69,7 +81,7 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
               )}
             </div>
 
-            <h1 className="font-serif-classic text-2xl md:text-4xl lg:text-5xl font-bold text-[#f7efe3] leading-tight">
+            <h1 className="font-serif-classic text-2xl md:text-4xl lg:text-5xl font-bold text-[#f7efe3] leading-tight pr-10">
               {project.title}
             </h1>
             <p className="design-body text-base md:text-lg max-w-4xl">
@@ -89,7 +101,7 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
             </div>
           </div>
 
-          {/* Impact Metrics Banner - تم التأكد من درجات الأسود والذهبي الخالصة */}
+          {/* Impact Metrics Banner */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 p-5 rounded-xl bg-[#0b0c0e] border border-[#C2A581]/30 shadow-inner">
             {project.impactMetrics.map((metric, idx) => (
               <div key={idx} className="text-center sm:text-left space-y-1">
