@@ -157,6 +157,10 @@ export default function App() {
                   <span>{PERSONAL_INFO.email}</span>
                 </div>
                 <div className="flex items-center gap-2.5">
+                  <Phone className="w-4 h-4 text-[#C2A581] shrink-0" />
+                  <span>+1 (506) 866-5671</span>
+                </div>
+                <div className="flex items-center gap-2.5">
                   <MapPin className="w-4 h-4 text-[#C2A581] shrink-0" />
                   <span>{PERSONAL_INFO.location}</span>
                 </div>

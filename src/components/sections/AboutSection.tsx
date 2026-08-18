@@ -47,7 +47,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onNavigate }) => {
     };
   }, [isSkillsModalOpen]);
 
-  const milestoneIcons = {
+  const milestoneIcons: Record<string, React.ComponentType<{ className?: string }>> = {
     GraduationCap: GraduationCap,
     BookOpen: BookOpen,
     BarChart3: BarChart3,
@@ -182,10 +182,16 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onNavigate }) => {
     "My work focuses on turning messy, fragmented data into clear, actionable insights that help organizations improve efficiency, strengthen decision-making, and achieve measurable results."
   ];
 
+  // ضبط عدد الأعمدة ديناميكياً حسب عدد عناصر التايملاين
+  const timelineColsClass = 
+    JOURNEY_TIMELINE.length === 3 ? 'md:grid-cols-3' :
+    JOURNEY_TIMELINE.length === 2 ? 'md:grid-cols-2' :
+    JOURNEY_TIMELINE.length === 5 ? 'md:grid-cols-5' : 'md:grid-cols-4';
+
   return (
     <>
       <div ref={containerRef} className="space-y-16 lg:space-y-20 pb-8">
-        {/* Top Header - تم إزالة أي مشكلة تخص السكرول أو التدفق */}
+        {/* Top Header */}
         <div className="space-y-6 pt-2" data-gsap="stagger">
           <div className="flex items-center gap-3">
             <span className="w-8 h-[1.5px] bg-[#C2A581]" />
@@ -228,7 +234,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onNavigate }) => {
           <div className="p-6 md:p-10 rounded-2xl bg-[#0b0c0e] border border-[#C2A581]/30 relative overflow-hidden shadow-2xl">
             <div className="hidden md:block absolute top-[106px] left-12 right-12 h-[2px] bg-gradient-to-r from-[#C2A581]/30 via-[#C2A581] to-[#C2A581]/30 z-0" />
 
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-8 relative z-20">
+            <div className={`grid grid-cols-1 ${timelineColsClass} gap-8 relative z-20`}>
               {JOURNEY_TIMELINE.map((item, idx) => {
                 const Icon = milestoneIcons[item.iconName] || Crown;
                 const isSelected = activeMilestone === idx;
@@ -381,7 +387,6 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onNavigate }) => {
             ))}
           </div>
 
-          {/* زر VIEW ALL SKILLS & TOOLS بالستايل الممحاط (Outlined) */}
           <button
             onClick={() => setIsSkillsModalOpen(true)}
             className="flex items-center justify-between gap-4 w-full px-7 py-4 rounded-xl border border-[#C2A581]/40 bg-[#0b0c0e] hover:bg-[#C2A581] text-[#C2A581] hover:text-[#0b0c0e] font-sans font-bold text-xs tracking-widest uppercase transition-all duration-300 cursor-pointer group shadow-sm mt-4"
@@ -431,7 +436,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onNavigate }) => {
           </div>
         </div>
 
-        {/* Bottom Final Contextual CTA Section - تم جعل زر START A CONVERSATION باللون الذهبي الممتلئ (Solid Gold) مطاباقاً لباقي الصفحات */}
+        {/* Bottom Final Contextual CTA Section */}
         <div className="mt-12 pt-6 pb-2 flex flex-col items-center justify-center text-center space-y-4" data-gsap="stagger">
           <span className="design-eyebrow">
             READY TO COLLABORATE?
@@ -484,7 +489,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onNavigate }) => {
                             <div className="p-2 rounded-xl bg-[#121418] border border-[#C2A581]/25 text-[#C2A581] shadow-inner">
                               <Icon className="w-4 h-4" />
                             </div>
-                            <h3 className="font-serif-classic text-base font-bold text-[#f5ebd8]">
+                            <h3 className="font-script sm:font-serif-classic text-base font-bold text-[#f5ebd8]">
                               {cat.title}
                             </h3>
                           </div>

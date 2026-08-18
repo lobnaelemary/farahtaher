@@ -174,12 +174,12 @@ export const ContactSection: React.FC = () => {
                       LINKEDIN
                     </span>
                     <a
-                      href="https://www.linkedin.com/in/farah-taher-b22920219"
+                      href="https://www.linkedin.com/in/farahtaheranalytics/"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-sm font-semibold text-[#F4F1EA] hover:text-[#C2A581] transition-colors"
                     >
-                      farah-taher
+                      Farah Taher
                     </a>
                   </div>
                 </div>

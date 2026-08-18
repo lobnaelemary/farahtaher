@@ -1,17 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import {
   X,
-  CheckCircle2,
-  Copy,
-  Check,
   TrendingUp,
   Award,
   Layers,
   Code2,
   Table as TableIcon,
   Sparkles,
-  ExternalLink,
-  Target
+  Target,
+  Image as ImageIcon
 } from 'lucide-react';
 import { ProjectData } from '../types';
 
@@ -25,7 +22,6 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
   onClose
 }) => {
   const [copiedCode, setCopiedCode] = useState(false);
-  const [activeTab, setActiveTab] = useState<'overview' | 'data' | 'query' | 'visuals'>('overview');
 
   // منع سكرول الصفحة الرئيسية خلف البوب أب تماماً
   useEffect(() => {
@@ -49,13 +45,19 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
     }
   };
 
+  // التحقق من وجود صور (سواء كانت نص واحد أو مصفوفة نصوص)
+  const hasImages = project.image && (
+    (typeof project.image === 'string' && project.image.trim() !== '') ||
+    (Array.isArray(project.image) && project.image.length > 0)
+  );
+
   return (
     <div className="fixed inset-0 z-[99999] bg-black/90 backdrop-blur-xl flex items-center justify-center p-3 md:p-6 lg:p-10 animate-fadeIn">
       
       {/* الصندوق الرئيسي للبوب أب */}
       <div className="relative w-full max-w-6xl max-h-[90vh] bg-[#0b0c0e] border border-[#C2A581]/40 rounded-3xl shadow-[0_20px_60px_rgba(0,0,0,0.9)] overflow-hidden flex flex-col isolate">
         
-        {/* زر الإغلاق العائم بحرية في الزاوية بدون أي أشرطة أو خطوط عرضية */}
+        {/* زر الإغلاق العائم بحرية في الزاوية */}
         <button
           onClick={onClose}
           className="absolute top-5 right-5 z-[100] p-2.5 rounded-xl bg-[#121418] border border-[#C2A581]/40 text-[#C2A581] hover:bg-[#C2A581] hover:text-[#0b0c0e] transition-all cursor-pointer shadow-lg"
@@ -64,8 +66,8 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
           <X className="w-4 h-4" />
         </button>
 
-        {/* Content Body الوحيد الذي يحتوي على السكرول والمحتوى بحرية تامة */}
-        <div className="p-6 md:p-8 lg:p-10 pt-16 md:pt-12 space-y-8 overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] flex-1 bg-[#0b0c0e] relative z-10">
+        {/* Content Body الذي يحتوي على السكرول والمحتوى مترابطاً تحت بعضه */}
+        <div className="p-6 md:p-8 lg:p-10 pt-16 md:pt-12 space-y-12 overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] flex-1 bg-[#0b0c0e] relative z-10">
           
           {/* Main Title & Meta Header */}
           <div className="space-y-4 pt-2">
@@ -123,126 +125,67 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
             ))}
           </div>
 
-          {/* Interactive Navigation Tabs */}
-          <div className="flex flex-wrap gap-2 border-b border-[#C2A581]/20 pb-3">
-            <button
-              onClick={() => setActiveTab('overview')}
-              className={`flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-semibold tracking-wider uppercase transition-all cursor-pointer ${
-                activeTab === 'overview'
-                  ? 'bg-[#C2A581]/20 text-[#f5ecd9] border border-[#C2A581]/50'
-                  : 'text-[#8c887f] hover:text-[#dfd7ca] hover:bg-[#121418]'
-              }`}
-            >
-              <Layers className="w-3.5 h-3.5" />
-              <span>Deep Dive Overview</span>
-            </button>
+          {/* SECTION 1: DEEP DIVE OVERVIEW */}
+          <div className="space-y-8">
+            <div className="flex items-center gap-2 border-b border-[#C2A581]/20 pb-3">
+              <Layers className="w-4 h-4 text-[#C2A581]" />
+              <h2 className="design-h2 text-lg text-[#C2A581] uppercase tracking-wider">Deep Dive Overview</h2>
+            </div>
 
-            {project.sampleData && (
-              <button
-                onClick={() => setActiveTab('data')}
-                className={`flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-semibold tracking-wider uppercase transition-all cursor-pointer ${
-                  activeTab === 'data'
-                    ? 'bg-[#C2A581]/20 text-[#f5ecd9] border border-[#C2A581]/50'
-                    : 'text-[#8c887f] hover:text-[#dfd7ca] hover:bg-[#121418]'
-                }`}
-              >
-                <TableIcon className="w-3.5 h-3.5" />
-                <span>Sample Data Output</span>
-              </button>
-            )}
+            <div className="p-5 rounded-xl bg-[#0b0c0e] border border-[#C2A581]/20 space-y-2">
+              <h3 className="design-h2 text-base">Executive Summary</h3>
+              <p className="design-body text-sm md:text-base leading-relaxed">
+                {project.overview}
+              </p>
+            </div>
 
-            {project.sqlQuery && (
-              <button
-                onClick={() => setActiveTab('query')}
-                className={`flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-semibold tracking-wider uppercase transition-all cursor-pointer ${
-                  activeTab === 'query'
-                    ? 'bg-[#C2A581]/20 text-[#f5ecd9] border border-[#C2A581]/50'
-                    : 'text-[#8c887f] hover:text-[#dfd7ca] hover:bg-[#121418]'
-                }`}
-              >
-                <Code2 className="w-3.5 h-3.5" />
-                <span>SQL Model Pipeline</span>
-              </button>
-            )}
-
-            <button
-              onClick={() => setActiveTab('visuals')}
-              className={`flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-semibold tracking-wider uppercase transition-all cursor-pointer ${
-                activeTab === 'visuals'
-                  ? 'bg-[#C2A581]/20 text-[#f5ecd9] border border-[#C2A581]/50'
-                  : 'text-[#8c887f] hover:text-[#dfd7ca] hover:bg-[#121418]'
-              }`}
-            >
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>Interactive Architecture</span>
-            </button>
-          </div>
-
-          {/* TAB 1: OVERVIEW */}
-          {activeTab === 'overview' && (
-            <div className="space-y-8 animate-fadeIn">
-              <div className="p-5 rounded-xl bg-[#0b0c0e] border border-[#C2A581]/20 space-y-2">
-                <h3 className="design-h2 text-lg">
-                  Executive Summary
-                </h3>
-                <p className="design-body text-sm md:text-base leading-relaxed">
-                  {project.overview}
-                </p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="p-5 rounded-xl bg-[#0b0c0e] border border-[#C2A581]/30 hover:border-[#C2A581]/60 transition-all space-y-3">
+                <div className="flex items-center gap-2 text-[#C2A581] font-serif-display font-semibold text-sm">
+                  <Target className="w-4 h-4" />
+                  <span>THE CHALLENGE</span>
+                </div>
+                <ul className="space-y-2 text-xs text-[#a8a399] leading-relaxed list-disc list-inside">
+                  {project.businessProblem.map((item, i) => (
+                    <li key={i} className="pl-1">{item}</li>
+                  ))}
+                </ul>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div className="p-5 rounded-xl bg-[#0b0c0e] border border-[#C2A581]/30 hover:border-[#C2A581]/60 transition-all space-y-3">
-                  <div className="flex items-center gap-2 text-[#C2A581] font-serif-display font-semibold text-sm">
-                    <Target className="w-4 h-4" />
-                    <span>THE CHALLENGE</span>
-                  </div>
-                  <ul className="space-y-2 text-xs text-[#a8a399] leading-relaxed list-disc list-inside">
-                    {project.businessProblem.map((item, i) => (
-                      <li key={i} className="pl-1">
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
+              <div className="p-5 rounded-xl bg-[#0b0c0e] border border-[#C2A581]/30 hover:border-[#C2A581]/60 transition-all space-y-3">
+                <div className="flex items-center gap-2 text-[#C2A581] font-serif-display font-semibold text-sm">
+                  <Sparkles className="w-4 h-4" />
+                  <span>THE SOLUTION</span>
                 </div>
+                <ul className="space-y-2 text-xs text-[#d0c9bd] leading-relaxed list-disc list-inside">
+                  {project.solution.map((item, i) => (
+                    <li key={i} className="pl-1">{item}</li>
+                  ))}
+                </ul>
+              </div>
 
-                <div className="p-5 rounded-xl bg-[#0b0c0e] border border-[#C2A581]/30 hover:border-[#C2A581]/60 transition-all space-y-3">
-                  <div className="flex items-center gap-2 text-[#C2A581] font-serif-display font-semibold text-sm">
-                    <Sparkles className="w-4 h-4" />
-                    <span>THE SOLUTION</span>
-                  </div>
-                  <ul className="space-y-2 text-xs text-[#d0c9bd] leading-relaxed list-disc list-inside">
-                    {project.solution.map((item, i) => (
-                      <li key={i} className="pl-1">
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
+              <div className="p-5 rounded-xl bg-[#0b0c0e] border border-[#C2A581]/30 hover:border-[#C2A581]/60 transition-all space-y-3">
+                <div className="flex items-center gap-2 text-[#C2A581] font-serif-display font-semibold text-sm">
+                  <Award className="w-4 h-4" />
+                  <span>THE IMPACT</span>
                 </div>
-
-                <div className="p-5 rounded-xl bg-[#0b0c0e] border border-[#C2A581]/30 hover:border-[#C2A581]/60 transition-all space-y-3">
-                  <div className="flex items-center gap-2 text-[#C2A581] font-serif-display font-semibold text-sm">
-                    <Award className="w-4 h-4" />
-                    <span>THE IMPACT</span>
-                  </div>
-                  <ul className="space-y-2 text-xs text-[#b0a99e] leading-relaxed list-disc list-inside">
-                    {project.impactPoints.map((item, i) => (
-                      <li key={i} className="pl-1">
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                <ul className="space-y-2 text-xs text-[#b0a99e] leading-relaxed list-disc list-inside">
+                  {project.impactPoints.map((item, i) => (
+                    <li key={i} className="pl-1">{item}</li>
+                  ))}
+                </ul>
               </div>
             </div>
-          )}
+          </div>
 
-          {/* TAB 2: SAMPLE DATA OUTPUT TABLE */}
-          {activeTab === 'data' && project.sampleData && (
-            <div className="space-y-4 animate-fadeIn">
-              <div className="flex items-center justify-between">
-                <h3 className="design-h2 text-base">
-                  Engineered Output Dataset (Live Transformation Schema)
-                </h3>
+          {/* SECTION 2: SAMPLE DATA OUTPUT TABLE (إذا توفرت) */}
+          {project.sampleData && (
+            <div className="space-y-4 pt-4">
+              <div className="flex items-center justify-between border-b border-[#C2A581]/20 pb-3">
+                <div className="flex items-center gap-2">
+                  <TableIcon className="w-4 h-4 text-[#C2A581]" />
+                  <h2 className="design-h2 text-lg text-[#C2A581] uppercase tracking-wider">Sample Data Output</h2>
+                </div>
                 <span className="design-caption text-[11px]">
                   {project.sampleData.rows.length} sample records
                 </span>
@@ -274,31 +217,19 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
             </div>
           )}
 
-          {/* TAB 3: SQL CODE VIEWER */}
-          {activeTab === 'query' && project.sqlQuery && (
-            <div className="space-y-3 animate-fadeIn">
-              <div className="flex items-center justify-between">
+          {/* SECTION 3: SQL MODEL PIPELINE (إذا توفرت) */}
+          {project.sqlQuery && (
+            <div className="space-y-4 pt-4">
+              <div className="flex items-center justify-between border-b border-[#C2A581]/20 pb-3">
                 <div className="flex items-center gap-2">
                   <Code2 className="w-4 h-4 text-[#C2A581]" />
-                  <h3 className="design-h2 text-base">
-                    Production CTE Query Model
-                  </h3>
+                  <h2 className="design-h2 text-lg text-[#C2A581] uppercase tracking-wider">SQL Model Pipeline</h2>
                 </div>
                 <button
                   onClick={handleCopyCode}
                   className="flex items-center gap-1.5 px-3 py-1 text-xs font-mono rounded bg-[#121418] border border-[#C2A581]/30 text-[#C2A581] hover:bg-[#C2A581]/20 transition-all cursor-pointer"
                 >
-                  {copiedCode ? (
-                    <>
-                      <Check className="w-3.5 h-3.5 text-[#C2A581]" />
-                      <span className="text-[#C2A581]">Copied!</span>
-                    </>
-                  ) : (
-                    <>
-                      <Copy className="w-3.5 h-3.5" />
-                      <span>Copy SQL</span>
-                    </>
-                  )}
+                  {copiedCode ? <span className="text-[#C2A581]">Copied!</span> : <span>Copy SQL</span>}
                 </button>
               </div>
 
@@ -310,16 +241,34 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
             </div>
           )}
 
-          {/* TAB 4: INTERACTIVE ARCHITECTURE */}
-          {activeTab === 'visuals' && (
-            <div className="space-y-6 animate-fadeIn">
-              <div className="p-6 rounded-xl bg-[#0b0c0e] border border-[#C2A581]/25 space-y-4">
-                <h3 className="design-h2 text-base">
-                  Architecture & Workflow Pipeline
-                </h3>
-                <p className="design-body text-xs">
-                  Enterprise-grade pipeline processing and secure data transformation architecture.
-                </p>
+          {/* SECTION 5: PROJECT VISUAL ASSET(S) (تدعم صورة واحدة أو عدة صور بدون قص object-contain) */}
+          {hasImages && (
+            <div className="space-y-4 pt-4 pb-2">
+              <div className="flex items-center gap-2 border-b border-[#C2A581]/20 pb-3">
+                <ImageIcon className="w-4 h-4 text-[#C2A581]" />
+                <h2 className="design-h2 text-lg text-[#C2A581] uppercase tracking-wider">Project Visual Artifacts</h2>
+              </div>
+              
+              <div className="grid grid-cols-1 gap-6">
+                {Array.isArray(project.image) ? (
+                  project.image.map((imgSrc, idx) => (
+                    <div key={idx} className="w-full bg-[#121418] rounded-2xl overflow-hidden border border-[#C2A581]/30 p-4 shadow-2xl flex items-center justify-center">
+                      <img 
+                        src={imgSrc} 
+                        alt={`${project.title} - ${idx + 1}`}
+                        className="w-full h-auto max-h-[500px] object-contain rounded-xl"
+                      />
+                    </div>
+                  ))
+                ) : (
+                  <div className="w-full bg-[#121418] rounded-2xl overflow-hidden border border-[#C2A581]/30 p-4 shadow-2xl flex items-center justify-center">
+                    <img 
+                      src={project.image as string} 
+                      alt={project.title}
+                      className="w-full h-auto max-h-[500px] object-contain rounded-xl"
+                    />
+                  </div>
+                )}
               </div>
             </div>
           )}

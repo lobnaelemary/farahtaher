@@ -77,7 +77,6 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
       );
     }
 
-    // تأثير التكبير والظهور تدريجياً مع السكرول لكل بند رأسي
     pillarsRef.current.forEach((card) => {
       if (card) {
         gsap.fromTo(
@@ -111,7 +110,6 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
       {/* Top Hero Section */}
       <div className="space-y-0 pt-2">
         
-        {/* الهيرو: الصورة بجانب النص حتى في شاشات الموبايل والتابلت والديسك توب */}
         <div className="flex flex-row items-center justify-between gap-4 sm:gap-8">
           
           <div className="flex-1 flex flex-col justify-center space-y-4 sm:space-y-6 py-2" data-gsap="stagger">
@@ -135,7 +133,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             <p className="design-body max-w-xl text-xs sm:text-base lg:text-lg leading-relaxed text-[#d5d0c5]">
               {PERSONAL_INFO.heroTagline}{' '}
               <span className="text-[#f5ebd8] font-medium">
-                I turn data into meaningful insights that drive impact. Transforming complex, multi-source data into clear insights, automated workflows, and measurable business impact.
+                I am a Toronto-based Canadian Professional, I turn data into meaningful insights that drive impact. Transforming complex, multi-source data into clear insights, automated workflows, and measurable business impact.
               </span>
             </p>
 
@@ -158,10 +156,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             </div>
           </div>
 
-          {/* الصورة بجانب النص تماماً في كافة المقاسات */}
           <div className="w-[130px] sm:w-[240px] md:w-[320px] lg:w-[420px] shrink-0 flex flex-col justify-end items-end relative" data-gsap="stagger">
             <div className="absolute inset-0 bg-gradient-to-t from-[#C2A581]/10 via-transparent to-transparent rounded-3xl blur-3xl pointer-events-none" />
-<div className="relative w-full h-[360px] sm:h-[400px] md:h-[450px] lg:h-[580px] flex items-end justify-center">              <img 
+            <div className="relative w-full h-[360px] sm:h-[400px] md:h-[450px] lg:h-[580px] flex items-end justify-center">
+               <img 
                 src="/assets/img/farah taher.png" 
                 alt="Farah Taher Portrait" 
                 className="w-full h-full object-contain object-bottom drop-shadow-[0_20px_40px_rgba(0,0,0,0.9)]"
@@ -171,7 +169,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           </div>
         </div>
 
-        {/* Marquee Ticker - تم جعله بعرض الشاشة بالكامل */}
+        {/* Marquee Ticker */}
         <div ref={marqueeRef} className="w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] overflow-hidden py-4 border-y border-[#C2A581]/30 bg-[#0b0c0e]/95 backdrop-blur-md z-20 shadow-2xl whitespace-nowrap mt-10">
           <div className="marquee-content flex w-max space-x-12 items-center">
             {[...techTools, ...techTools, ...techTools, ...techTools].map((tool, index) => (
@@ -214,7 +212,6 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           ))}
         </div>
 
-        {/* Visual Charts Grid - تم تحديث الشارت بحذف الشهور واستبدالها بمراحل تطور عامة */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 pt-2">
           <div className="lg:col-span-7 gold-card p-6 md:p-8 rounded-2xl space-y-4 bg-[#0b0c0e] border border-[#C2A581]/20 shadow-xl flex flex-col justify-between">
             <div>
@@ -251,13 +248,11 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               </svg>
             </div>
 
-            {/* سطر إضافي ونقاط تجميلية متناسقة لملء الفراغ وجعل الكارت متوازناً تماماً */}
             <div className="pt-3 border-t border-[#C2A581]/15 flex items-center justify-between px-2">
               <div className="flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-[#C2A581]" />
                 <span className="text-[11px] font-mono tracking-widest text-[#a39d91] uppercase">Continuous Growth Trajectory</span>
               </div>
-            
             </div>
           </div>
 
@@ -315,11 +310,13 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             return (
               <div 
                 key={ind.id} 
-                className="vertical-card h-[350px] [perspective:1000px] cursor-pointer"
+                /* تم زيادة ارتفاع الكارت قليلاً من 350px إلى 380px لاستيعاب النصوص كاملة براحة تامة */
+                className="vertical-card h-[380px] [perspective:1000px] cursor-pointer"
                 onClick={() => toggleCard(ind.id)}
               >
                 <div className={`relative w-full h-full duration-700 [transform-style:preserve-3d] rounded-2xl shadow-2xl transition-all ${isFlipped ? '[transform:rotateY(180deg)]' : ''}`}>
                   
+                  {/* وجه الكارت الأمامي */}
                   <div className="absolute inset-0 w-full h-full [backface-visibility:hidden] p-6 rounded-2xl flex flex-col justify-between bg-[#0b0c0e] border border-[#C2A581]/25 transition-all duration-500 hover:border-[#C2A581]/70 hover:shadow-[0_15px_35px_rgba(0,0,0,0.7),0_0_25px_rgba(194,165,129,0.25)] group">
                     <div className="flex-1 flex flex-col items-center justify-center text-center space-y-4">
                       <div className="p-4 rounded-2xl bg-[#121418] border border-[#C2A581]/30 text-[#C2A581] shadow-inner group-hover:bg-[#C2A581] group-hover:text-[#0b0c0e] transition-all duration-300 scale-100 group-hover:scale-110">
@@ -335,17 +332,19 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                     </div>
                   </div>
 
-                  <div className="absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] p-6 rounded-2xl flex flex-col justify-start bg-[#0b0c0e] border border-[#C2A581]/50 shadow-2xl">
-                    <div className="space-y-4">
-                      <div className="flex items-center justify-between border-b border-[#C2A581]/20 pb-3">
-                        <span className="design-eyebrow text-[#C2A581]">CORE SERVICES</span>
+                  {/* وجه الكارت الخلفي (معدل ليظهر النصوص كاملة بدون أي قص) */}
+                  <div className="absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] p-5 rounded-2xl flex flex-col justify-start bg-[#0b0c0e] border border-[#C2A581]/50 shadow-2xl overflow-y-auto custom-scrollbar">
+                    <div className="space-y-3">
+                      <div className="flex items-center justify-between border-b border-[#C2A581]/20 pb-2.5">
+                        <span className="design-eyebrow text-[#C2A581] text-[11px]">CORE SERVICES</span>
                         <RotateCcw className="w-4 h-4 text-[#C2A581]" />
                       </div>
-                      <ul className="space-y-3 design-body text-xs pt-2">
+                      <ul className="space-y-2.5 design-body text-[11px] pt-1">
                         {ind.items.slice(0, 4).map((item, i) => (
-                          <li key={i} className="flex items-start gap-2.5">
+                          <li key={i} className="flex items-start gap-2">
                             <span className="text-[#C2A581] font-bold mt-0.5">•</span>
-                            <span className="line-clamp-2 text-[#ded7cb] leading-relaxed">{item}</span>
+                            {/* تم إزالة line-clamp لكي يظهر النص بالكامل مع تصغير الخط قليلا وملاءمة الارتفاع */}
+                            <span className="text-[#ded7cb] leading-snug">{item}</span>
                           </li>
                         ))}
                       </ul>
@@ -374,10 +373,6 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           </button>
         </div>
       </div>
-
-      
-
-      
 
       {/* Bottom CTA */}
       <div className="mt-16 pt-6 pb-4 flex flex-col items-center justify-center text-center space-y-4" data-gsap="stagger">

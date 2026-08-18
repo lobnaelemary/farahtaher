@@ -6,12 +6,11 @@ export const PERSONAL_INFO = {
   title: 'Data Analyst & Data Science Professional',
   location: 'Toronto, ON, Canada',
   email: 'fara7.taher89@gmail.com',
-  phone: '+1 (437) 000-0000',
-  linkedin: 'https://linkedin.com/in/farah-taher',
-  github: 'https://github.com/farahtaher',
-  // heroTagline: 'I turn data into meaningful insights that drive impact.',
+  phone: '+1 (506) 866-5671',
+  linkedin: 'https://www.linkedin.com/in/farahtaheranalytics/',
+  github: 'https://github.com/Farahtaher89',
   taglineSecondary: 'Transforming complex, multi-source data into clear insights, automated workflows, and measurable business impact.',
-  bio: `I’m Farah, a Toronto-based Data Specialist with 3+ years of experience delivering analytical solutions across financial services, supply chain, transportation, and public-sector environments. I completed my Master of Data Science & Analytics, specializing in Natural Language Processing (NLP) and advanced data visualization. My work focuses on turning messy, fragmented data into clear, actionable insights that help organizations improve efficiency, strengthen decision-making, and achieve measurable results.`,
+  bio: `Business Insights and Data Analytics professional with 3+ years of experience leveraging SQL, Python,Power BI, Tableau, and Excel to deliver actionable business insights. Experienced in building KPI dashboards, automating reporting, analyzing business performance, and partnering with cross-functional stakeholders to support data-driven decision-making. Completed a Master of Data Science & Analytics at Toronto Metropolitan University.`,
   aboutDetailed: `Across my roles, I’ve supported operational teams, commercial leaders, and executives by developing automated reporting pipelines, performance dashboards, and analytical frameworks that improve efficiency and strengthen decision-making. My work has contributed to over $1M in cost savings through improved compliance, optimized workflows, and data-driven operational improvements.
 
 I’m passionate about solving real business problems, simplifying complexity, and communicating insights in a way that builds trust and drives action. I bring a blend of technical depth, business understanding, and clear communication to every project I work on.`,
@@ -47,28 +46,21 @@ export const CORE_PILLARS = [
 
 export const JOURNEY_TIMELINE: JourneyMilestone[] = [
   {
-    year: '2018 – 2020',
+    year: '2025 – 2026',
     title: 'Master of Data Science & Analytics',
     organization: 'Specialized in NLP & Visualization',
     description: 'Advanced my expertise in statistics, machine learning, and data visualization to solve complex problems and model multi-source data.',
     iconName: 'GraduationCap'
   },
   {
-    year: '2020 – 2021',
-    title: 'Data Scientist',
-    organization: 'Machine Learning & Predictive Modeling',
-    description: 'Worked on impactful projects involving predictive modeling, natural language processing (NLP), and data-driven decision making.',
-    iconName: 'BookOpen'
-  },
-  {
-    year: '2021 – 2023',
-    title: 'Senior Data Analyst',
+    year: '2023 – 2026',
+    title: ' Data Analyst',
     organization: 'Enterprise Performance & Pipelines',
     description: 'Led analytics initiatives, built automated reporting pipelines and dashboards, and delivered actionable insights that improved business performance.',
     iconName: 'BarChart3'
   },
   {
-    year: '2023 – Present',
+    year: '2026 – Present',
     title: 'Analytics Consultant',
     organization: 'Strategic Advisory & Solutions Lead',
     description: 'Partnering with organizations to transform data into strategies, optimize operations, and fuel scalable business growth.',
@@ -154,6 +146,7 @@ export const PROJECTS: ProjectData[] = [
     role: 'Lead Data Analyst & SQL Architect',
     duration: '8 Weeks',
     featured: true,
+  
     impactMetrics: [
       { label: 'Risk Accuracy', value: '99.4%', subtext: 'Precision across flagged accounts' },
       { label: 'EDD Efficiency', value: '45%', subtext: 'Faster compliance case review' },
@@ -180,12 +173,12 @@ export const PROJECTS: ProjectData[] = [
     sampleData: {
       headers: ['Customer ID', 'Old Postal', 'New Postal', 'Old Country', 'New Country', 'Days Between', 'Total Moves', 'Left US/CAN', 'AML Risk Tier'],
       rows: [
-        ['102344', '94110', 'M5V2T6', 'US', 'Canada', 12, 4, 0, 'High Risk'],
-        ['771204', 'M4B1B3', '75001', 'Canada', 'France', 30, 1, 1, 'High Risk'],
-        ['550921', '10001', '33101', 'US', 'US', 45, 5, 0, 'Medium Risk'],
-        ['998712', 'V6B3K9', 'M5H2N2', 'Canada', 'Canada', 60, 3, 0, 'Medium Risk'],
-        ['342109', 'L4W1S9', 'L4W1S9', 'Canada', 'Canada', 320, 0, 0, 'Low Risk'],
-        ['881230', '90210', '94016', 'US', 'US', 180, 1, 0, 'Low Risk']
+        ['102344', '94110', 'M5V2T6', 'US', 'Canada', 12, 4, 0, 'Low Risk'],
+        ['771204', 'M4B1B3', '75001', 'Canada', 'France', 30, 1, 1, 'Low Risk'],
+        ['550921', '10001', '33101', 'US', 'US', 45, 5, 0, 'Low Risk'],
+        ['998712', 'V6B3K9', 'M5H2N2', 'Canada', 'Mexico', 60, 3, 0, 'High Risk'],
+        ['342109', 'L4W1S9', 'L4W1S9', 'Canada', 'Iraq', 320, 0, 0, 'High Risk'],
+        ['881230', '90210', '94016', 'US', 'Dubai', 180, 1, 0, 'Medium Risk']
       ]
     },
     sqlQuery: `WITH cleaned_addresses AS (
@@ -265,14 +258,15 @@ ORDER BY aml_risk_segment DESC, customer_id;`
     subtitle: 'End-to-end automated ETL and Alteryx pipeline generating $350K+ in annual vendor licensing savings',
     category: 'supply-chain',
     categoryLabel: 'Supply Chain',
-    tools: ['SQL', 'Alteryx', 'Snowflake', 'Data Modeling', 'Excel'],
+    tools: ['SQL', 'Data Modeling', 'Excel'],
     role: 'Senior Data Analyst / Pipeline Architect',
     duration: '12 Weeks',
     featured: true,
+    image: ['/assets/project/project 2 .png'], // صورة لهذا المشروع
     impactMetrics: [
       { label: 'Annual Savings', value: '$350K+', subtext: 'Direct vendor licensing reduction' },
       { label: 'Manual Effort', value: '100%', subtext: 'Eliminated manual report processing' },
-      { label: 'Data Latency', value: '4x Faster', subtext: 'Accelerated weekly reporting cycles' }
+      { label: 'Data Accuracy ', value: '98%', subtext: 'Accelerated weekly reporting cycles' }
     ],
     overview: 'Designed and deployed an end-to-end automated workflow to streamline POS data integration across multiple vendors. The project involved transitioning one major vendor from NielsenIQ to Circana, while maintaining NielsenIQ feeds for all remaining vendors — eliminating duplicate licensing costs and generating over $350K in annual savings.',
     businessProblem: [
@@ -304,6 +298,7 @@ ORDER BY aml_risk_segment DESC, customer_id;`
     role: 'Analytics Consultant / BI Lead',
     duration: '10 Weeks',
     featured: true,
+    image: ['/assets/project/project 3-1.png','/assets/project/project 3-2.png'],
     impactMetrics: [
       { label: 'Cost Savings', value: '$650K+', subtext: 'Annual operational reduction' },
       { label: 'Terminals Covered', value: '24', subtext: 'Unified network visibility' },
@@ -337,6 +332,7 @@ ORDER BY aml_risk_segment DESC, customer_id;`
     role: 'Data Specialist / Visualization Lead',
     duration: '6 Weeks',
     featured: false,
+    image: ['/assets/project/project 4.png'],// صورة لهذا المشروع
     impactMetrics: [
       { label: 'Staffing Shortages', value: '-8%', subtext: 'Direct reduction in staffing gaps' },
       { label: 'Absence Visibility', value: '100%', subtext: 'Full cross-department coverage' },
@@ -370,6 +366,7 @@ ORDER BY aml_risk_segment DESC, customer_id;`
     role: 'Lead ML Researcher / Data Scientist',
     duration: '16 Weeks',
     featured: true,
+    image: ['/assets/project/project 5.png'], // صورة لهذا المشروع
     impactMetrics: [
       { label: 'LightGBM R²', value: '0.9086', subtext: 'Best predictive accuracy' },
       { label: 'RF MAE', value: '15.05m', subtext: 'Lowest Mean Absolute Error' },
@@ -403,6 +400,7 @@ ORDER BY aml_risk_segment DESC, customer_id;`
     role: 'Optimization Specialist',
     duration: '6 Weeks',
     featured: false,
+    image: ['/assets/project/project 6-1.png','/assets/project/project 6-2.png'], // صورة لهذا المشروع
     impactMetrics: [
       { label: 'Best Large Dist.', value: '30.49M', subtext: 'Simulated Annealing route score' },
       { label: 'Fastest Runtime', value: '0.0013s', subtext: 'Nearest Neighbor heuristic' },

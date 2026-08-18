@@ -17,6 +17,7 @@ export interface ProjectData {
   tools: string[];
   role: string;
   duration?: string;
+  image?: string | string[];
   impactMetrics: ProjectMetric[];
   overview: string;
   businessProblem: string[];
