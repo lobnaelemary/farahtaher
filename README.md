@@ -1,5 +1,5 @@
 <div align="center">
-<img width="1200" height="475" alt="farah taher" src="https:/assets/img/farah taher.png" />
+<img width="1200" height="475" alt="farah taher" src="assets/img/logo.png" />
 </div>
 
 ## Run Locally

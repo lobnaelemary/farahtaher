@@ -29,7 +29,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
 
-  // مراقبة حركة التمرير لإخفاء وإظهار النافبار
+  // Monitor scroll position to hide and show the top navbar
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
@@ -47,7 +47,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
     return () => window.removeEventListener('scroll', handleScroll);
   }, [lastScrollY]);
 
-  // مصفوفة التنقل الرئيسية
+  // Main navigation items array
   const navItems: { id: SectionId; label: string; icon: React.ComponentType<{ className?: string }> }[] = [
     { id: 'home', label: 'Home', icon: Home },
     { id: 'about', label: 'About', icon: User },
@@ -56,7 +56,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
     { id: 'contact', label: 'Contact', icon: Mail }
   ];
 
-  // مصفوفة روابط السوشيال ميديا
+  // Social media links array
   const socialLinks = [
     { label: 'LinkedIn', href: PERSONAL_INFO.linkedin, icon: Linkedin },
     { label: 'GitHub', href: PERSONAL_INFO.github, icon: Github },

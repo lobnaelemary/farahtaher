@@ -1,6 +1,5 @@
 {
   "name": "Farah Taher Portfolio",
-  "description": "Portfolio of Farah Taher, Data Specialist and Analytics Consultant featuring projects in financial services, supply chain, transportation, and public sector analytics with GSAP animations.",
+  "description": "Portfolio of Farah Taher, Data Specialist and Analytics Consultant featuring projects in financial services, supply chain, transportation, and public sector analytics.",
   "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

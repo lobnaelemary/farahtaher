@@ -16,6 +16,7 @@ interface ExpertiseSectionProps {
 }
 
 export const ExpertiseSection: React.FC<ExpertiseSectionProps> = ({ onNavigate }) => {
+  // Initialize GSAP page transition hook for the expertise section container
   const containerRef = useGsapPageTransition('expertise');
   const printRef = useRef<HTMLDivElement | null>(null);
 

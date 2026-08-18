@@ -12,6 +12,7 @@ export const SplashScreen: React.FC<SplashScreenProps> = ({ onComplete }) => {
   const glowRef = useRef<HTMLDivElement | null>(null);
   const [isSkipped, setIsSkipped] = useState(false);
 
+  // Configure splash screen animation timeline with GSAP
   useEffect(() => {
     if (!containerRef.current || !logoWrapperRef.current || !typographyRef.current) return;
 
@@ -47,7 +48,7 @@ export const SplashScreen: React.FC<SplashScreenProps> = ({ onComplete }) => {
         ease: 'power2.in'
       })
 
-      // ضبط إحداثيات انتقال اللوجو بدقة ليستقر داخل النافبار تماماً
+      // Precision coordinate transition for smooth logo settling into navbar
       .to(logoWrapperRef.current, {
         scale: 0.28,
         x: () => {

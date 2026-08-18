@@ -1,13 +1,17 @@
+// Type definitions for section identifiers
 export type SectionId = 'home' | 'about' | 'expertise' | 'projects' | 'resume' | 'contact';
 
+// Type definitions for project categories
 export type ProjectCategory = 'all' | 'financial' | 'supply-chain' | 'transportation' | 'public-sector' | 'ml' | 'optimization';
 
+// Interface for individual project impact metrics
 export interface ProjectMetric {
   label: string;
   value: string;
   subtext?: string;
 }
 
+// Interface for comprehensive project data and case studies
 export interface ProjectData {
   id: string;
   title: string;
@@ -34,6 +38,7 @@ export interface ProjectData {
   featured?: boolean;
 }
 
+// Interface for technical skills and proficiency levels
 export interface SkillItem {
   name: string;
   level: number; // 0 to 100
@@ -41,6 +46,7 @@ export interface SkillItem {
   tag?: string;
 }
 
+// Interface for professional journey milestones
 export interface JourneyMilestone {
   year: string;
   title: string;
@@ -49,6 +55,7 @@ export interface JourneyMilestone {
   iconName: 'GraduationCap' | 'BookOpen' | 'BarChart3' | 'Rocket' | 'Crown';
 }
 
+// Interface for industry expertise and service sectors
 export interface IndustryExpertise {
   id: string;
   title: string;

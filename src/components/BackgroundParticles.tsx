@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 
+// Background particles component for interactive luxury canvas animation
 export const BackgroundParticles: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 

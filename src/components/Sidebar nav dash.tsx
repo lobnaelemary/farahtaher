@@ -26,7 +26,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
   isMobileOpen,
   setIsMobileOpen
 }) => {
-  // مصفوفة التنقل الرئيسية - قابلة للتطوير وإضافة صفحات جديدة بكل سهولة
+  // Main navigation items configuration array
   const navItems: { id: SectionId; label: string; icon: React.ComponentType<{ className?: string }> }[] = [
     { id: 'home', label: 'Home', icon: Home },
     { id: 'about', label: 'About', icon: User },
@@ -35,7 +35,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
     { id: 'contact', label: 'Contact', icon: Mail }
   ];
 
-  // مصفوفة روابط السوشيال ميديا - مركزية وقابلة للتعديل أو الإضافة مستقبلاً
+  // Social media links configuration array
   const socialLinks = [
     { label: 'LinkedIn', href: PERSONAL_INFO.linkedin, icon: Linkedin },
     { label: 'GitHub', href: PERSONAL_INFO.github, icon: Github },
@@ -176,7 +176,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
             })}
           </nav>
           
-          {/* Mobile Social Links (مبنية ديناميكياً باستخدام مصفوفة `socialLinks`) */}
+          {/* Mobile Social Links */}
           <div className="pt-6 border-t border-[#C2A581]/20 flex justify-center gap-6">
             {socialLinks.map((social, idx) => {
               const SocialIcon = social.icon;

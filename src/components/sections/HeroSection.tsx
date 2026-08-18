@@ -29,6 +29,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   onNavigate,
   onOpenProject
 }) => {
+  // Initialize GSAP page transition hook for the hero section container
   const containerRef = useGsapPageTransition('hero');
   const verticalsContainerRef = useRef<HTMLDivElement | null>(null);
   const marqueeRef = useRef<HTMLDivElement | null>(null);
@@ -51,6 +52,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
     'POWER BI', 'PYTHON', 'TABLEAU', 'SQL', 'ALTERYX', 'SNOWFLAKE', 'SIGMA', 'MACHINE LEARNING'
   ];
 
+  // Configure marquee ticker and scroll-triggered entrance animations
   useEffect(() => {
     if (marqueeRef.current) {
       const content = marqueeRef.current.querySelector('.marquee-content') as HTMLElement;
@@ -164,7 +166,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 alt="Farah Taher Portrait" 
                 className="w-full h-full object-contain object-bottom drop-shadow-[0_20px_40px_rgba(0,0,0,0.9)]"
                 onError={(e) => { (e.target as HTMLElement).style.display = 'none'; }}
-              />
+               />
             </div>
           </div>
         </div>
@@ -310,13 +312,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             return (
               <div 
                 key={ind.id} 
-                /* تم زيادة ارتفاع الكارت قليلاً من 350px إلى 380px لاستيعاب النصوص كاملة براحة تامة */
                 className="vertical-card h-[380px] [perspective:1000px] cursor-pointer"
                 onClick={() => toggleCard(ind.id)}
               >
                 <div className={`relative w-full h-full duration-700 [transform-style:preserve-3d] rounded-2xl shadow-2xl transition-all ${isFlipped ? '[transform:rotateY(180deg)]' : ''}`}>
                   
-                  {/* وجه الكارت الأمامي */}
+                  {/* Front Card Face */}
                   <div className="absolute inset-0 w-full h-full [backface-visibility:hidden] p-6 rounded-2xl flex flex-col justify-between bg-[#0b0c0e] border border-[#C2A581]/25 transition-all duration-500 hover:border-[#C2A581]/70 hover:shadow-[0_15px_35px_rgba(0,0,0,0.7),0_0_25px_rgba(194,165,129,0.25)] group">
                     <div className="flex-1 flex flex-col items-center justify-center text-center space-y-4">
                       <div className="p-4 rounded-2xl bg-[#121418] border border-[#C2A581]/30 text-[#C2A581] shadow-inner group-hover:bg-[#C2A581] group-hover:text-[#0b0c0e] transition-all duration-300 scale-100 group-hover:scale-110">
@@ -332,7 +333,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                     </div>
                   </div>
 
-                  {/* وجه الكارت الخلفي (معدل ليظهر النصوص كاملة بدون أي قص) */}
+                  {/* Back Card Face */}
                   <div className="absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] p-5 rounded-2xl flex flex-col justify-start bg-[#0b0c0e] border border-[#C2A581]/50 shadow-2xl overflow-y-auto custom-scrollbar">
                     <div className="space-y-3">
                       <div className="flex items-center justify-between border-b border-[#C2A581]/20 pb-2.5">
@@ -343,7 +344,6 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                         {ind.items.slice(0, 4).map((item, i) => (
                           <li key={i} className="flex items-start gap-2">
                             <span className="text-[#C2A581] font-bold mt-0.5">•</span>
-                            {/* تم إزالة line-clamp لكي يظهر النص بالكامل مع تصغير الخط قليلا وملاءمة الارتفاع */}
                             <span className="text-[#ded7cb] leading-snug">{item}</span>
                           </li>
                         ))}

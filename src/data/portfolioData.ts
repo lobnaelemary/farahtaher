@@ -1,5 +1,6 @@
 import { ProjectData, JourneyMilestone, IndustryExpertise } from '../types';
 
+// Personal profile information and contact details
 export const PERSONAL_INFO = {
   name: 'Farah Taher',
   role: 'Analytics Consultant & Data Specialist',
@@ -18,6 +19,7 @@ I’m passionate about solving real business problems, simplifying complexity, a
   philosophy: `I believe in curiosity, clarity, and continuous learning. My goal is to bridge the gap between data and impact, empowering businesses and people to make better choices.`
 };
 
+// Key impact statistics for the portfolio
 export const IMPACT_STATS = [
   { value: '25+', label: 'PROJECTS DELIVERED', sub: 'Across 5+ Industries' },
   { value: '15+', label: 'CLIENTS & TEAMS', sub: 'Cross-functional Reach' },
@@ -25,6 +27,7 @@ export const IMPACT_STATS = [
   { value: '$1M+', label: 'COST SAVINGS', sub: 'Documented Impact' },
 ];
 
+// Core professional pillars
 export const CORE_PILLARS = [
   {
     title: 'DATA-DRIVEN STRATEGY',
@@ -44,6 +47,7 @@ export const CORE_PILLARS = [
   }
 ];
 
+// Journey timeline milestones
 export const JOURNEY_TIMELINE: JourneyMilestone[] = [
   {
     year: '2025 – 2026',
@@ -68,6 +72,7 @@ export const JOURNEY_TIMELINE: JourneyMilestone[] = [
   }
 ];
 
+// Technical skills and proficiency levels
 export const SKILLS_DATA = [
   { name: 'Python (Pandas, NumPy, Scikit-Learn, spaCy)', level: 92, category: 'technical', tag: 'Expert' },
   { name: 'SQL (Snowflake, PostgreSQL, Window Functions, CTE)', level: 95, category: 'technical', tag: 'Expert' },
@@ -79,6 +84,7 @@ export const SKILLS_DATA = [
   { name: 'Operations Research & Optimization (VRP, PuLP)', level: 85, category: 'technical', tag: 'Specialist' }
 ];
 
+// Industry expertise and service verticals
 export const INDUSTRY_EXPERTISE: IndustryExpertise[] = [
   {
     id: 'financial',
@@ -126,6 +132,7 @@ export const INDUSTRY_EXPERTISE: IndustryExpertise[] = [
   }
 ];
 
+// Professional core strengths list
 export const PROFESSIONAL_STRENGTHS = [
   'Strategic problem-solving',
   'Executive-ready communication',
@@ -135,6 +142,7 @@ export const PROFESSIONAL_STRENGTHS = [
   'Building trust through accuracy and clarity'
 ];
 
+// Detailed portfolio projects and case studies
 export const PROJECTS: ProjectData[] = [
   {
     id: 'aml-compliance',
@@ -146,7 +154,7 @@ export const PROJECTS: ProjectData[] = [
     role: 'Lead Data Analyst & SQL Architect',
     duration: '8 Weeks',
     featured: true,
-  
+ 
     impactMetrics: [
       { label: 'Risk Accuracy', value: '99.4%', subtext: 'Precision across flagged accounts' },
       { label: 'EDD Efficiency', value: '45%', subtext: 'Faster compliance case review' },
@@ -262,7 +270,7 @@ ORDER BY aml_risk_segment DESC, customer_id;`
     role: 'Senior Data Analyst / Pipeline Architect',
     duration: '12 Weeks',
     featured: true,
-    image: ['/assets/project/project 2 .png'], // صورة لهذا المشروع
+    image: ['/assets/project/project 2 .png'],
     impactMetrics: [
       { label: 'Annual Savings', value: '$350K+', subtext: 'Direct vendor licensing reduction' },
       { label: 'Manual Effort', value: '100%', subtext: 'Eliminated manual report processing' },
@@ -332,7 +340,7 @@ ORDER BY aml_risk_segment DESC, customer_id;`
     role: 'Data Specialist / Visualization Lead',
     duration: '6 Weeks',
     featured: false,
-    image: ['/assets/project/project 4.png'],// صورة لهذا المشروع
+    image: ['/assets/project/project 4.png'],
     impactMetrics: [
       { label: 'Staffing Shortages', value: '-8%', subtext: 'Direct reduction in staffing gaps' },
       { label: 'Absence Visibility', value: '100%', subtext: 'Full cross-department coverage' },
@@ -366,7 +374,7 @@ ORDER BY aml_risk_segment DESC, customer_id;`
     role: 'Lead ML Researcher / Data Scientist',
     duration: '16 Weeks',
     featured: true,
-    image: ['/assets/project/project 5.png'], // صورة لهذا المشروع
+    image: ['/assets/project/project 5.png'],
     impactMetrics: [
       { label: 'LightGBM R²', value: '0.9086', subtext: 'Best predictive accuracy' },
       { label: 'RF MAE', value: '15.05m', subtext: 'Lowest Mean Absolute Error' },
@@ -400,7 +408,7 @@ ORDER BY aml_risk_segment DESC, customer_id;`
     role: 'Optimization Specialist',
     duration: '6 Weeks',
     featured: false,
-    image: ['/assets/project/project 6-1.png','/assets/project/project 6-2.png'], // صورة لهذا المشروع
+    image: ['/assets/project/project 6-1.png','/assets/project/project 6-2.png'],
     impactMetrics: [
       { label: 'Best Large Dist.', value: '30.49M', subtext: 'Simulated Annealing route score' },
       { label: 'Fastest Runtime', value: '0.0013s', subtext: 'Nearest Neighbor heuristic' },

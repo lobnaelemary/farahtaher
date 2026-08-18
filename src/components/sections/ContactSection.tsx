@@ -14,6 +14,7 @@ import { PERSONAL_INFO } from '../../data/portfolioData';
 import { useGsapPageTransition } from '../../hooks/useGsapAnimations';
 
 export const ContactSection: React.FC = () => {
+  // Initialize GSAP page transition hook for the contact section container
   const containerRef = useGsapPageTransition('contact');
   const [formData, setFormData] = useState({
     name: '',
@@ -24,7 +25,7 @@ export const ContactSection: React.FC = () => {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  // ربط الفورم بخدمة استقبال رسائل حقيقية (مثل Formspree أو الإرسال المباشر)
+  // Handle form submission and integrate with Formspree service
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) return;
@@ -32,8 +33,7 @@ export const ContactSection: React.FC = () => {
     setLoading(true);
 
     try {
-      // يمكنك استبدال الرابط أدناه برابط نموذجك الفعلي من Formspree (مثال: https://formspree.io/f/your_form_id)
-      const response = await fetch('https://formspree.io/f/farnbndy', {
+      const response = await fetch('https://formspree.io/f/xnpaoakb', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -47,11 +47,11 @@ export const ContactSection: React.FC = () => {
         })
       });
 
-      if (response.ok || true) { // السماح بالتجاوز الناجح للاختبار المحلي
+      if (response.ok) {
         setLoading(false);
         setSubmitted(true);
 
-        // احتفال ذهبي بالكونفيتي
+        // Trigger celebratory gold confetti effect upon success
         confetti({
           particleCount: 80,
           spread: 70,
@@ -63,7 +63,7 @@ export const ContactSection: React.FC = () => {
         alert('حدث خطأ أثناء إرسال الرسالة. يرجى المحاولة مرة أخرى.');
       }
     } catch (error) {
-      // Fallback لتجربة المستخدم في حال عدم توفر الاتصال بالإنترنت أثناء التطوير
+      // Fallback mechanism for user experience during offline development testing
       setTimeout(() => {
         setLoading(false);
         setSubmitted(true);
@@ -320,7 +320,7 @@ export const ContactSection: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Submit Button باستخدام الـ Design System الموحد btn-primary */}
+                {/* Submit Button */}
                 <button
                   type="submit"
                   disabled={loading}

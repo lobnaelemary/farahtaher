@@ -23,7 +23,7 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
 }) => {
   const [copiedCode, setCopiedCode] = useState(false);
 
-  // منع سكرول الصفحة الرئيسية خلف البوب أب تماماً
+  // Prevent background scrolling completely when modal is open
   useEffect(() => {
     if (project) {
       document.body.style.overflow = 'hidden';
@@ -45,7 +45,7 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
     }
   };
 
-  // التحقق من وجود صور (سواء كانت نص واحد أو مصفوفة نصوص)
+  // Check for available image assets (single string or string array)
   const hasImages = project.image && (
     (typeof project.image === 'string' && project.image.trim() !== '') ||
     (Array.isArray(project.image) && project.image.length > 0)
@@ -54,10 +54,10 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
   return (
     <div className="fixed inset-0 z-[99999] bg-black/90 backdrop-blur-xl flex items-center justify-center p-3 md:p-6 lg:p-10 animate-fadeIn">
       
-      {/* الصندوق الرئيسي للبوب أب */}
+      {/* Main Modal Container */}
       <div className="relative w-full max-w-6xl max-h-[90vh] bg-[#0b0c0e] border border-[#C2A581]/40 rounded-3xl shadow-[0_20px_60px_rgba(0,0,0,0.9)] overflow-hidden flex flex-col isolate">
         
-        {/* زر الإغلاق العائم بحرية في الزاوية */}
+        {/* Floating Close Button */}
         <button
           onClick={onClose}
           className="absolute top-5 right-5 z-[100] p-2.5 rounded-xl bg-[#121418] border border-[#C2A581]/40 text-[#C2A581] hover:bg-[#C2A581] hover:text-[#0b0c0e] transition-all cursor-pointer shadow-lg"
@@ -66,7 +66,7 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
           <X className="w-4 h-4" />
         </button>
 
-        {/* Content Body الذي يحتوي على السكرول والمحتوى مترابطاً تحت بعضه */}
+        {/* Content Body with integrated vertical scrolling */}
         <div className="p-6 md:p-8 lg:p-10 pt-16 md:pt-12 space-y-12 overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] flex-1 bg-[#0b0c0e] relative z-10">
           
           {/* Main Title & Meta Header */}
@@ -178,7 +178,7 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
             </div>
           </div>
 
-          {/* SECTION 2: SAMPLE DATA OUTPUT TABLE (إذا توفرت) */}
+          {/* SECTION 2: SAMPLE DATA OUTPUT TABLE */}
           {project.sampleData && (
             <div className="space-y-4 pt-4">
               <div className="flex items-center justify-between border-b border-[#C2A581]/20 pb-3">
@@ -217,7 +217,7 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
             </div>
           )}
 
-          {/* SECTION 3: SQL MODEL PIPELINE (إذا توفرت) */}
+          {/* SECTION 3: SQL MODEL PIPELINE */}
           {project.sqlQuery && (
             <div className="space-y-4 pt-4">
               <div className="flex items-center justify-between border-b border-[#C2A581]/20 pb-3">
@@ -241,7 +241,7 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
             </div>
           )}
 
-          {/* SECTION 5: PROJECT VISUAL ASSET(S) (تدعم صورة واحدة أو عدة صور بدون قص object-contain) */}
+          {/* SECTION 5: PROJECT VISUAL ARTIFACTS */}
           {hasImages && (
             <div className="space-y-4 pt-4 pb-2">
               <div className="flex items-center gap-2 border-b border-[#C2A581]/20 pb-3">

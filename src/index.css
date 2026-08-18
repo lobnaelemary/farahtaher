@@ -18,15 +18,13 @@
   }
 }
 
-/* --- 1. نظام التايبوجرافي الهرمي (Hierarchy System) --- */
+/* --- 1. (Hierarchy System) --- */
 
-/* خط Cinzel للعناوين الكبرى فقط */
 .design-h1, .design-h2, .design-h3, .font-serif-classic, .font-serif-display {
   font-family: 'Cinzel', serif !important;
   letter-spacing: 0.05em !important;
 }
 
-/* خط Plus Jakarta Sans لكل النصوص الأخرى */
 .design-eyebrow, .design-body, .design-caption, p, span, a, button, li {
   font-family: 'Plus Jakarta Sans', sans-serif !important;
 }
@@ -43,7 +41,7 @@
   font-weight: 800 !important;
   letter-spacing: 0.06em !important;
   text-transform: uppercase;
-  color: #C2A581 !important; /* <--- اجعليها هنا ذهبي صريح ومؤكد */
+  color: #C2A581 !important; 
 }
 
 .design-h3 {
@@ -73,7 +71,7 @@
   color: #C5C0B5 !important;
 }
 
-/* --- 2. العناصر البصرية الموحدة (UI Elements) --- */
+/* --- 2. (UI Elements) --- */
 .gold-card {
   background-color: #0B0C0E;
   border: 1px solid rgba(194, 165, 129, 0.3);
@@ -85,7 +83,7 @@
   -webkit-text-fill-color: transparent;
 }
 
-/* --- 3. حاوية الخدمات والكروت (Vertical Cards) --- */
+/* --- 3. (Vertical Cards) --- */
 .services-container {
     display: flex;
     gap: 30px;
@@ -123,7 +121,7 @@
     border-radius: 1rem;
 }
 
-/* --- 4. الشريط المتحرك (Marquee Ticker) --- */
+/* --- 4. (Marquee Ticker) --- */
 .ticker-track {
     display: flex;
     width: max-content;
@@ -135,7 +133,7 @@
     100% { transform: translateX(-50%); }
 }
 
-/* --- 5. نظام الأزرار الموحد (Buttons System) --- */
+/* --- 5 (Buttons System) --- */
 .btn-primary {
   display: inline-flex;
   align-items: center;
@@ -186,26 +184,24 @@
   color: #ffffff;
 }
 
-/* --- تخصيص الـ Scrollbar بلون ذهبي واضح وفاخر --- */
 ::-webkit-scrollbar {
   width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #0B0C0E; /* خلفية داكنة نقية */
+  background: #0B0C0E; 
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #C2A581; /* لون ذهبي صريح وواضح */
+  background: #C2A581; 
   border-radius: 5px;
   border: 2px solid #0B0C0E;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #d4b995; /* إضاءة خفيفة عند الـ Hover */
+  background: #d4b995; 
 }
 
-/* لمتصفح Firefox */
 * {
   scrollbar-color: #C2A581 #0B0C0E;
   scrollbar-width: thin;

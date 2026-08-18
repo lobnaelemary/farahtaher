@@ -13,6 +13,7 @@ import { PERSONAL_INFO } from './data/portfolioData';
 import { Mail, Phone, MapPin, Linkedin, Github } from 'lucide-react';
 
 export default function App() {
+  // State management for splash screen visibility, active section, selected project modal, and mobile menu state
   const [showSplash, setShowSplash] = useState<boolean>(true);
   const [activeSection, setActiveSection] = useState<SectionId>('home');
   const [selectedProject, setSelectedProject] = useState<ProjectData | null>(null);
@@ -89,11 +90,11 @@ export default function App() {
           )}
         </div>
 
-        {/* Global Footer الاحترافي بثلاثة أعمدة متساوية */}
+        {/* Global Footer */}
         <footer className="py-12 px-6 bg-[#0b0c0e]/95 backdrop-blur-md mt-16">
           <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16 pb-12 border-b border-[#C2A581]/15">
             
-            {/* العمود الأول: اللوجو الكبير ونبذة تعريفية */}
+            {/* Column 1: Brand Logo & Short Bio */}
             <div className="space-y-4">
               <div className="flex items-center gap-3">
                 <div className="w-12 h-12 flex items-center justify-center">
@@ -112,7 +113,7 @@ export default function App() {
               </p>
             </div>
 
-            {/* العمود الثاني: لينكات الصفحات */}
+            {/* Column 2: Quick Links */}
             <div className="space-y-4 md:pl-8">
               <h4 className="font-serif-display text-xs font-bold tracking-[0.2em] text-[#C2A581] uppercase">
                 QUICK LINKS
@@ -146,7 +147,7 @@ export default function App() {
               </ul>
             </div>
 
-            {/* العمود الثالث: معلومات التواصل والسوشيال ميديا (مع تعديل ترتيب الهاتف ليصبح بالأعلى) */}
+            {/* Column 3: Contact Info & Social Links */}
             <div className="space-y-4">
               <h4 className="font-serif-display text-xs font-bold tracking-[0.2em] text-[#C2A581] uppercase">
                 GET IN TOUCH
@@ -189,7 +190,7 @@ export default function App() {
 
           </div>
 
-          {/* شريط حقوق النشر السفلي (في المنتصف تماماً وبدون خط علوي) */}
+          {/* Copyright Notice */}
           <div className="max-w-7xl mx-auto pt-8 flex flex-col items-center justify-center text-center gap-2 text-xs font-mono text-[#8c887f]">
             <div className="text-[11px] text-[#8c887f]">
               © 2026 <span className="text-[#C2A581] font-medium">Farah Taher</span>. All Rights Reserved.

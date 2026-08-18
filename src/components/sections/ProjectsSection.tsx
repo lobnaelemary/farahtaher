@@ -25,6 +25,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
   onNavigate,
   onOpenProject
 }) => {
+  // Initialize GSAP page transition hook for the projects section container
   const containerRef = useGsapPageTransition('projects');
   const [selectedCategory, setSelectedCategory] = useState<ProjectCategory>('all');
   const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
@@ -52,11 +53,11 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
       case 'supply-chain':
         return Box;            
       case 'transportation':
-        return Truck;           
+        return Truck;          
       case 'public-sector':
         return GraduationCap;   
       case 'ml':
-        return Brain;             
+        return Brain;            
       case 'optimization':
         return LayoutDashboard; 
       default:
@@ -64,6 +65,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
     }
   };
 
+  // Manage pulsing pulse animations for project impact metrics
   useEffect(() => {
     pulseAnimsRef.current.forEach((anim) => anim.kill());
     pulseAnimsRef.current = [];
@@ -89,6 +91,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
     };
   }, [filteredProjects]);
 
+  // Handle card mouse enter animations
   const handleCardMouseEnter = (index: number) => {
     const card = cardsRef.current[index];
     if (!card) return;
@@ -112,6 +115,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
     });
   };
 
+  // Handle card mouse leave animations
   const handleCardMouseLeave = (index: number) => {
     const card = cardsRef.current[index];
     if (!card) return;
@@ -199,7 +203,6 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
                     <div className="p-2.5 rounded-xl bg-[#0b0c0e] border border-[#C2A581]/30 text-[#C2A581] shadow-inner group-hover:scale-110 transition-transform duration-300 shrink-0">
                       <Icon className="w-5 h-5" />
                     </div>
-                    {/* تم تصغير الخط وضبط الحشو لضمان ظهور الكلمة كاملة بدون قطع (...) */}
                     <span className="bg-[#0b0c0e]/90 border border-[#C2A581]/35 px-2.5 py-1 rounded-full text-[#ded5c6] font-mono uppercase tracking-wider text-[9px] text-right shrink-0">
                       {project.categoryLabel}
                     </span>
@@ -248,7 +251,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
                     )}
                   </div>
 
-                  {/* Explore Button - تم إصلاح الهوفر لتظهر الكتابة والسهم بوضوح تام باللون الأسود الداكن */}
+                  {/* Explore Button */}
                   <div className="pt-1">
                     <div className="w-full flex items-center justify-between px-4 py-3 rounded-xl border border-[#C2A581]/40 bg-[#0b0c0e] text-[#C2A581] group-hover:bg-[#C2A581] group-hover:text-[#0b0c0e] group-hover:border-[#C2A581] transition-all duration-300 shadow-sm cursor-pointer">
                       <span className="text-[11px] font-bold font-mono tracking-widest uppercase text-[#C2A581] group-hover:text-[#0b0c0e] transition-colors">

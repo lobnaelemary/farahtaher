@@ -20,6 +20,7 @@ import { useGsapPageTransition } from '../../hooks/useGsapAnimations';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
+// Register ScrollTrigger plugin for GSAP animations
 gsap.registerPlugin(ScrollTrigger);
 
 interface AboutSectionProps {
@@ -35,7 +36,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onNavigate }) => {
   const circlesRef = useRef<(SVGCircleElement | null)[]>([]);
   const barsRef = useRef<(HTMLDivElement | null)[]>([]);
 
-  // منع سكرول الصفحة الخلفية عند فتح البوب أب
+  // Prevent background page scrolling when the skills modal is open
   useEffect(() => {
     if (isSkillsModalOpen) {
       document.body.style.overflow = 'hidden';
@@ -86,6 +87,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onNavigate }) => {
     }
   ];
 
+  // Auto-rotate timeline milestones
   useEffect(() => {
     timelineIntervalRef.current = setInterval(() => {
       setActiveMilestone((prev) => (prev + 1) % JOURNEY_TIMELINE.length);
@@ -96,6 +98,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onNavigate }) => {
     };
   }, []);
 
+  // Animate biography lines on mount
   useEffect(() => {
     if (bioLinesRef.current.length > 0) {
       gsap.fromTo(
@@ -122,6 +125,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onNavigate }) => {
     { name: 'Building trust through accuracy and clarity', percentage: 96, color: '#947653' }
   ];
 
+  // Animate circular progress bars on scroll
   useEffect(() => {
     circlesRef.current.forEach((circle, i) => {
       if (circle) {
@@ -148,6 +152,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onNavigate }) => {
     });
   }, []);
 
+  // Animate linear progress bars on scroll
   useEffect(() => {
     barsRef.current.forEach((bar) => {
       if (bar) {
@@ -182,7 +187,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onNavigate }) => {
     "My work focuses on turning messy, fragmented data into clear, actionable insights that help organizations improve efficiency, strengthen decision-making, and achieve measurable results."
   ];
 
-  // ضبط عدد الأعمدة ديناميكياً حسب عدد عناصر التايملاين
+  // Dynamically set column classes based on the timeline length
   const timelineColsClass = 
     JOURNEY_TIMELINE.length === 3 ? 'md:grid-cols-3' :
     JOURNEY_TIMELINE.length === 2 ? 'md:grid-cols-2' :
@@ -459,6 +464,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onNavigate }) => {
         <div className="fixed inset-0 z-[99999] flex items-center justify-center p-4 sm:p-6 bg-black/90 backdrop-blur-md">
           <div className="relative w-full max-w-4xl max-h-[85vh] bg-[#0b0c0e] border border-[#C2A581]/40 rounded-3xl shadow-2xl overflow-hidden flex flex-col isolate">
             
+            {/* Modal Header */}
             <div className="flex items-center justify-between px-6 sm:px-8 py-5 border-b border-[#C2A581]/20 bg-[#0b0c0e] z-50 shrink-0 shadow-lg">
               <div className="flex items-center gap-3">
                 <span className="w-8 h-[1.5px] bg-[#C2A581]" />
@@ -474,6 +480,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onNavigate }) => {
               </button>
             </div>
 
+            {/* Modal Body */}
             <div className="p-6 sm:p-8 overflow-y-auto space-y-6 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] flex-1 bg-[#0b0c0e] relative z-10">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 {technicalCategories.map((cat, idx) => {
