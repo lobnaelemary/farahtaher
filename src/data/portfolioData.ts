@@ -102,7 +102,7 @@ export const INDUSTRY_EXPERTISE: IndustryExpertise[] = [
     title: 'Supply Chain ',
     iconName: 'Boxes',
     items: [
-      'POS multi-vendor data integration (Circana + NielsenIQ)',
+      'POS multi-vendor data integration ',
       'Category hierarchy alignment & product mapping',
       'Sales trend analysis & category performance',
       'Executive KPI reporting and demand forecasting'
@@ -113,7 +113,7 @@ export const INDUSTRY_EXPERTISE: IndustryExpertise[] = [
     title: 'Transportation & Logistics',
     iconName: 'Truck',
     items: [
-      'GPS & telematics (XRS) fleet analytics across 24 terminals',
+      'GPS & telematics (XRS) fleet analytics across 8 terminals',
       'Driver compliance & on-time departure tracking',
       'Vehicle Routing Problem (VRP) optimization algorithms',
       'Route efficiency & operating cost reduction'
@@ -262,11 +262,11 @@ ORDER BY aml_risk_segment DESC, customer_id;`
   },
   {
     id: 'pos-integration',
-    title: 'Automated POS Data Integration & Standardized Pipeline (Circana + NielsenIQ)',
+    title: 'Automated POS Data Integration & Standardized Pipeline',
     subtitle: 'End-to-end automated ETL and Alteryx pipeline generating $350K+ in annual vendor licensing savings',
     category: 'supply-chain',
     categoryLabel: 'Supply Chain',
-    tools: ['SQL', 'Data Modeling', 'Excel'],
+    tools: ['SQL', 'Data Modeling', 'alteryx' ,'Excel'],
     role: 'Senior Data Analyst / Pipeline Architect',
     duration: '12 Weeks',
     featured: true,
@@ -276,9 +276,9 @@ ORDER BY aml_risk_segment DESC, customer_id;`
       { label: 'Manual Effort', value: '100%', subtext: 'Eliminated manual report processing' },
       { label: 'Data Accuracy ', value: '98%', subtext: 'Accelerated weekly reporting cycles' }
     ],
-    overview: 'Designed and deployed an end-to-end automated workflow to streamline POS data integration across multiple vendors. The project involved transitioning one major vendor from NielsenIQ to Circana, while maintaining NielsenIQ feeds for all remaining vendors — eliminating duplicate licensing costs and generating over $350K in annual savings.',
+    overview: 'Designed and deployed an end-to-end automated workflow to streamline POS data integration across multiple vendors. The project involved transitioning one major vendor to a new data provider, while maintaining the existing feeds for all remaining vendors — eliminating duplicate licensing costs and generating over $350K in annual savings.',
     businessProblem: [
-      'Commercial teams struggled with fragmented vendor feeds (Circana vs. NielsenIQ) with conflicting hierarchies and product naming conventions.',
+      'Commercial teams struggled with fragmented vendor feeds with conflicting hierarchies and product naming conventions.',
       'Duplicate licensing fees incurred across overlapping retail syndicated data providers.',
       'Manual weekly reconciliation created substantial delay in publishing executive sales performance and market share reports.',
       'Risk of commercial reporting disruptions during supplier vendor transitions.'
@@ -309,12 +309,12 @@ ORDER BY aml_risk_segment DESC, customer_id;`
     image: ['/assets/project/project 3-1.png','/assets/project/project 3-2.png'],
     impactMetrics: [
       { label: 'Cost Savings', value: '$650K+', subtext: 'Annual operational reduction' },
-      { label: 'Terminals Covered', value: '24', subtext: 'Unified network visibility' },
+      { label: 'Terminals Covered', value: '8', subtext: 'Unified network visibility' },
       { label: 'Target Drivers', value: '76%', subtext: 'Average meeting on-time benchmarks' }
     ],
-    overview: 'Late departures and inconsistent driver compliance were reducing operational efficiency, hurting service reliability, and increasing costs across 24 terminals. Leadership needed high-level visibility for decision-making and driver-level accountability to address recurring issues.',
+    overview: 'Late departures and inconsistent driver compliance were reducing operational efficiency, hurting service reliability, and increasing costs across 8 terminals. Leadership needed high-level visibility for decision-making and driver-level accountability to address recurring issues.',
     businessProblem: [
-      'Late departures across 24 regional logistics terminals resulted in cascading shipping delays and contractual SLA penalties.',
+      'Late departures across 8 regional logistics terminals resulted in cascading shipping delays and contractual SLA penalties.',
       'Discrepancies between physical GPS timestamps and driver manifest logs made root cause attribution contentious.',
       'Terminal managers lacked objective, standardized drill-down visibility into driver-level adherence trends.'
     ],
