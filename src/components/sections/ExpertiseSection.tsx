@@ -79,7 +79,7 @@ export const ExpertiseSection: React.FC<ExpertiseSectionProps> = ({ onNavigate }
           <div className="space-y-10 border-l border-[#C2A581]/30 pl-6 ml-2">
             {[
               { title: 'Analytics Consultant & Solutions Lead', date: '2026 – Present', desc: 'Partner with enterprise leaders to transform complex data into executive decision models.' },
-              { title: 'Data Analyst', date: '2025 – 2026', desc: 'Led enterprise data modeling, SQL ETL transformations, and executive dashboard development.' },
+              { title: 'Data Analyst', date: '2023 – 2026', desc: 'Led enterprise data modeling, SQL ETL transformations, and executive dashboard development.' },
             ].map((exp, i) => (
               <div key={i} className="relative space-y-2">
                 <span className="absolute -left-[31px] top-1.5 w-3 h-3 rounded-full bg-[#C2A581] border-2 border-[#0b0c0e]" />
