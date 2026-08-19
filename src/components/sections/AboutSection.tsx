@@ -117,8 +117,8 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onNavigate }) => {
   }, []);
 
   const strengthsCircularData = [
-    { name: 'Strategic problem-solving', percentage: 195, color: '#C2A581' },
-    { name: 'Executive-ready communication', percentage: 900, color: '#d4b995' },
+    { name: 'Strategic problem-solving', percentage: 95, color: '#C2A581' },
+    { name: 'Executive-ready communication', percentage: 90, color: '#d4b995' },
     { name: 'Turning complex data into clear insights', percentage: 94, color: '#dfcaa7' },
     { name: 'Leading analytics projects end-to-end', percentage: 98, color: '#b2946c' },
     { name: 'Storytelling in data problems', percentage: 92, color: '#e5d1b5' },
