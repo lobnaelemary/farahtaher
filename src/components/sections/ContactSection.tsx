@@ -33,7 +33,7 @@ export const ContactSection: React.FC = () => {
     setLoading(true);
 
     try {
-      const response = await fetch('https://formspree.io/f/xnpaoakb', {
+      const response = await fetch('https://formspree.io/f/meajvaoo', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
