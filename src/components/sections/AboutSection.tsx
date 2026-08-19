@@ -122,7 +122,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onNavigate }) => {
     { name: 'Turning complex data into clear insights', percentage: 94, color: '#dfcaa7' },
     { name: 'Leading analytics projects end-to-end', percentage: 98, color: '#b2946c' },
     { name: 'Storytelling in data problems', percentage: 92, color: '#e5d1b5' },
-    { name: 'Building trust through accuracy and clarity', percentage: 96, color: '#947653' }
+    { name: 'Building trust through accuracy and clarity', percentage: 94, color: '#947653' }
   ];
 
   // Animate circular progress bars on scroll
